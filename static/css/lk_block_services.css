@@ -1,0 +1,152 @@
+/*---------------------------------БЛОК ПОДКЛЮЧЕННЫЕ УСЛУГИ------------------------------------------*/
+
+
+.main_block_services {
+display: flex;
+}
+
+.services {
+flex: 1 1 auto;
+padding: 0 50px 0 0;
+}
+
+.services_title {
+margin: 0 0 35px 0;
+}
+
+.services_list > *:not(:last-child) {
+margin: 0 0 10px 0;
+}
+
+.service {
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.service_left_part {
+display: flex;
+align-items: center;
+}
+
+.service_name {
+white-space: pre-wrap;
+line-height: 150%;
+}
+
+.service_price {
+text-align: end;
+white-space: nowrap;
+}
+
+.service > *:not(:last-child) {
+margin: 0 10px 0 0;
+}
+
+.disc {
+width: 15px;
+height: 15px;
+border-radius: 50%;
+margin: 0 20px 0 0;
+}
+
+.d1 {
+background-color: rgb(255, 99, 132);
+}
+.d2 {
+background-color: rgb(54, 162, 235);
+}
+.d3 {
+background: rgb(255, 205, 86);
+}
+.d4 {
+background: rgb(147,9,194);
+}
+.d5{
+background: rgb(11,208,50);
+}
+.d6{
+background: rgb(86,255,255);
+}
+.d7{
+background: rgb(255,86,86);
+}
+.d8{
+background: rgb(255,86,227);
+}
+.d9{
+background: rgb(92,86,255);
+}
+.d10{
+background: rgb(86,255,159);
+}
+.d11 {
+background-color: rgb(255, 255, 51);
+}
+.d12 {
+background-color: rgb(204, 0, 0);
+}
+.d13 {
+background: rgb(255, 102, 0);
+}
+.d14 {
+background: rgb(135, 206, 250);
+}
+.d15{
+background: rgb(255, 105, 180);
+}
+.d16{
+background: rgb(0, 100, 0);
+}
+.d17{
+background: rgb(188, 143, 143);
+}
+.d18{
+background: rgb(29, 0, 136);
+}
+.d19{
+background: rgb(255, 176, 86);
+}
+.d20{
+background: rgb(9, 194, 172);
+}
+
+.circle_diagram {
+flex: 0 1 40%;
+position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 20px;
+max-width: 300px;
+}
+
+
+.circle_diagram p {
+position: absolute;
+}
+
+@media(max-width:1280px) {
+.disc {
+width: calc(8px + (15 - 8) * ((100vw - 320px) / (1260 - 320)));
+height: calc(8px + (15 - 8) * ((100vw - 320px) / (1260 - 320)));
+margin: 0 calc(7px + (20 - 7) * ((100vw - 320px) / (1260 - 320))) 0 0;
+}
+}
+
+@media(max-width:865px) {
+.main_block_services {
+align-items: center;
+flex-direction: column;
+}
+.services {
+padding: 0;
+width: 100%;
+}
+}
+
+@media(max-width:530px) {
+.service_name {
+max-width: 150px;
+}
+}

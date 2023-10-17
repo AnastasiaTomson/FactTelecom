@@ -1,0 +1,15 @@
+.table {
+width: 880px;
+}
+
+
+.img_download img {
+height: 155px;
+width: 215px;
+object-fit: cover;
+}
+
+.description label {
+display: flex;
+flex-direction: column;
+}

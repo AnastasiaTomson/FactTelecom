@@ -1,0 +1,108 @@
+{% extends 'sitepages/internet.html' %}
+
+{% block block_header %}
+	<div class="block_header">
+		<div class="title">Тарифы интернет + тв</div>
+		<div class="internet_tabs">
+			{% block tabs_menu %}
+				<nav class="tabs_menu">
+					<a class="tabs-item active" data-tab="1">Многоэтажные дома</a>
+					<a class="tabs-item" data-tab="2">Частный сектор</a>
+				</nav>
+			{% endblock tabs_menu %}
+		</div>
+	</div>
+{% endblock block_header %}
+
+
+{% block tabs_content %}
+	<div class="tabs_content">
+		<div class="internet_tarify block_tarify tabs_block item active" data-tab="1">
+			<div class="item_body">
+				<p class="lk_title">интернет</p>
+				<div class="item_body_content">
+					<div class="show_selected_tarif">
+						<div class="show_selected_tarif_body">
+							<div>Тариф</div>
+							<div class="tarif_tabs">
+								{% for item in tariffs_multi_storey_building %}
+									<div class="tarif_tab tab_name" id="{{ item.id }}">
+										<div class="tarif_name lk_title" data-speed="{{ item.speed }}">{{ item.name }}</div>
+										<p class="lk_subtitle">{{ item.cost }} ₽/мес</p>
+									</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+					<div class="tarifs_bottom">
+						<div class="selection_tarifs">
+							<p class="max-speed">Макс. скорость (Мбит/с)</p>
+							<div class="selection_tarifs_slider">
+								<div class="slider_line"></div>
+								<div class="tarifs">
+									{% for item in tariffs_multi_storey_building %}
+										<label class="radio">
+											<input class="radio-tab" type="radio" name="max-speed"
+											       value="{{ item.id }}" checked="checked">
+											<p>{{ item.speed }} <span>+</span> <br>{{ item.tv.amount_channel }} <span>кан</span></p>
+										</label>
+									{% endfor %}
+								</div>
+							</div>
+						</div>
+						<div class="tarifs_btn">
+							<button onclick="ConnectTariff(this)" class="btn js-open-modal" data-modal="4">Подключить
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="internet_tarify block_tarify tabs_block item" data-tab="2">
+			<div class="item_body">
+				<p class="lk_title">интернет</p>
+				<div class="item_body_content">
+					<div class="show_selected_tarif">
+						<div class="show_selected_tarif_body">
+							<div>Тариф</div>
+							<div class="tarif_tabs">
+								{% for item in tariffs_private_sector %}
+									<div class="tarif_tab1 tab_name" id="{{ item.id }}">
+										<div class="tarif_name lk_title" data-speed="{{ item.speed }}">
+											{{ item.name }}
+										</div>
+										<p class="lk_subtitle">{{ item.cost }} ₽/мес</p>
+									</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+					<div class="tarifs_bottom">
+						<div class="selection_tarifs">
+							<p class="max-speed">Макс. скорость (Мбит/с)</p>
+							<div class="selection_tarifs_slider">
+								<div class="slider_line"></div>
+								<div class="tarifs">
+									{% for item in tariffs_private_sector %}
+										<label class="radio">
+											<input class="radio-tab1" type="radio" name="max-speed-1"
+											       value="{{ item.id }}" checked="checked">
+											<p>{{ item.speed }} <span>+</span> <br>{{ item.tv.amount_channel }} <span>кан</span></p>
+										</label>
+									{% endfor %}
+								</div>
+							</div>
+						</div>
+						<div class="tarifs_btn">
+							<button onclick="ConnectTariff(this)" class="btn js-open-modal" data-modal="4">Подключить
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock tabs_content %}
+
+

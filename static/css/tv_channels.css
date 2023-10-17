@@ -1,0 +1,96 @@
+.tv_channels_block_container .title,
+.tv_channels_block_container .subtitle_1 {
+margin: 0 -15px;
+}
+.tv_channels_block_container .subtitle_1 {
+margin-bottom: 20px;
+}
+
+.tv_channels_list {
+display: flex;
+flex-wrap: wrap;
+column-gap: 18px;
+}
+
+.channel-block {
+width: 200px;
+height: 139px;
+position: relative;
+text-align: center;
+line-height: 1.7;
+max-width: 200px;
+}
+.channel-block-inner {
+transition: all .2s ease-in-out;
+}
+.channel-block:hover .channel-block-inner {
+position: absolute;
+transform: scale(1.3);
+background-color: white;
+z-index: 10;
+}
+.channel-logo {
+display: block;
+width: 200px;
+object-fit: contain;
+}
+.channel-name {
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+display: block;
+}
+.channel-block:hover .channel-name {
+overflow: visible;
+white-space: normal;
+font-size: 14px;
+}
+
+@media(max-width: 1300px) {
+.block_body_content {
+display: flex;
+justify-content: center;
+}
+}
+
+
+@media(max-width: 978px) {
+.tv_channels_list {
+width: 780px;
+}
+}
+
+@media(max-width: 970px) {
+.tv_channels_list {
+width: 645px;
+}
+}
+
+@media(max-width: 699px) {
+.tv_channels_list {
+width: 590px;
+gap: 20px;
+}
+.all img {
+height: 80px;
+width: 80px;
+}
+}
+
+@media(max-width: 631px) {
+.tv_channels_list {
+width: 480px;
+}
+}
+
+@media(max-width: 525px) {
+.tv_channels_list {
+width: 380px;
+}
+}
+
+@media(max-width: 421px) {
+.tv_channels_list {
+width: 280px;
+}
+}

@@ -1,0 +1,164 @@
+/*--------FOOTER---------*/
+
+.footer {
+background: #0b9fef;
+}
+
+.footer ul, .footer li {
+list-style: none;
+}
+
+.footer_container {
+display: flex;
+flex-direction: column;
+justify-content: center;
+color: #FFFFFF;
+row-gap: 60px;
+}
+
+.footer_body {
+display: flex;
+}
+
+.footer_row {
+display: flex;
+flex: 0 50%;
+justify-content: space-around;
+}
+
+
+.footer_column_title {
+font-weight: 600;
+font-size: 24px;
+line-height: 187%;
+letter-spacing: 0.015em;
+margin-bottom: 35px;
+white-space: nowrap;
+}
+
+.footer_column_menu li, .footer_tel_list li  {
+margin-left: 0;
+}
+
+.footer_menu_link {
+font-weight: 500;
+font-size: 14px;
+line-height: 179%;
+}
+
+.footer_menu_link:hover {
+color: #0E57E6;
+}
+
+.footer_copyright {
+text-align: center;
+font-size: 13px;
+}
+
+.footer_app_block {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.footer_app {
+display: flex;
+justify-content: center;
+gap: 30px;
+}
+
+.app_btn_text {
+line-height: 140%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+.app_footer_link {
+font-weight: 500;
+border-bottom: 1px solid #fff;
+}
+
+.footer_app_block .btn {
+width: max-content;
+margin-top: 30px;
+}
+
+/*--------column_contacts---------*/
+
+
+.footer_column_contacts {
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+.column_contacts > *:not(:last-child) {
+margin-bottom: 7px;
+}
+
+.time {
+font-weight: 700;
+}
+
+
+/*--------footer_column---------*/
+
+
+.footer_column_menu li:not(:last-child) {
+margin-bottom: 20px;
+}
+
+
+@media (max-width:1000px) {
+.footer_body {
+flex-direction: column;
+}
+.footer_body {
+row-gap: calc(10px + (50 - 10) * ((100vw - 320px) / (1000 - 320)));
+}
+.column_3 {
+padding: 0 120px 0 0;
+}
+}
+
+
+@media (max-width:850px) {
+.footer_app {
+flex-direction: column;
+align-items: center;
+text-align: center;
+gap: 15px;
+}
+}
+
+
+@media (max-width:678px) {
+.footer_container {
+row-gap: 15px;
+}
+.footer_body {
+row-gap: 0;
+}
+.footer_row {
+flex-direction: column;
+align-items: center;
+}
+.footer_row:not(:last-child) {
+margin: 0;
+}
+.footer_column {
+text-align: center;
+}
+.column_3 {
+padding: 0;
+}
+.footer_row:not(:last-child),
+.footer_column_title,
+.footer_column_menu li:not(:last-child),
+.column_contacts:not(:last-child),
+.column_contacts > *:not(:last-child) {
+margin-bottom: 0px;
+}
+}
+

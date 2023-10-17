@@ -1,0 +1,7 @@
+.new_column {
+flex: 75%;
+}
+
+.new_item {
+height: inherit;
+}

@@ -1,0 +1,21 @@
+.tv_page .forms {
+z-index: 3;
+flex-direction: row;
+gap: 15px;
+flex: unset;
+}
+
+.tv_app {
+background-color: white;
+}
+
+.tv_app .block_body {
+flex-wrap: wrap;
+}
+
+
+@media (max-width: 780px) {
+.tv_page .forms {
+flex-direction: column;
+}
+}

@@ -1,0 +1,34 @@
+
+.connecting_container {
+display: flex;
+}
+
+.coverage {
+flex: 65%;
+display: flex;
+flex-direction: column;
+}
+
+.coverage_title {
+margin-bottom: 30px;
+}
+
+@media(max-width:1280px) {
+.connecting_container {
+flex-direction: column;
+align-items: center;
+}
+.connectivity_form {
+padding-bottom: calc(40px + (115 - 40) * ((100vw - 320px) / (1260 - 320)));
+}
+.coverage {
+width: 100%;
+text-align: center;
+}
+.coverage_title {
+margin-bottom: calc(15px + (30 - 15) * ((100vw - 320px) / (1260 - 320)));
+}
+}
+
+
+

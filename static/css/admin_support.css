@@ -1,0 +1,21 @@
+.support_modal {
+left: 50%;
+margin-left: -260px;
+max-width: 700px;
+width: 100%;
+}
+
+.add_tag {
+background: none;
+width: min-content;
+color: #0b9fef;
+}
+
+.add_tag:hover {
+background: none;
+color: #0E57E5;
+}
+
+.quest_col {
+max-width: 300px;
+}

@@ -1,0 +1,36 @@
+
+.mailing >*:not(:last-child) {
+margin-bottom: 50px;
+}
+
+.recipients {
+display: flex;
+width: 100%;
+}
+
+.recipients>* {
+flex: 50%;
+}
+
+.recipients>*:not(:last-child) {
+margin: 0 70px 0 0;
+}
+
+.mailing textarea{
+    max-height: 100px;
+}
+.mailing select{
+width: 100%;
+}
+.mailing .column:last-child {
+max-width: 100px;
+}
+
+@media(max-width:1260px) {
+.recipients {
+flex-direction: column;
+}
+.recipients>*:not(:last-child) {
+margin: 0 0 50px 0;
+}
+}

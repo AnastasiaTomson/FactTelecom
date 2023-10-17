@@ -1,0 +1,43 @@
+{% extends 'sitepages/news_archive.html' %}
+
+{% block head %}
+	<link rel="stylesheet" href="/static/css/new.css">
+	<link rel="stylesheet" href="/static/css/news.css">
+	<link rel="stylesheet" href="/static/css/news_block.css">
+{% endblock head %}
+
+{% block page %}
+	<div class="page side block">
+		<div class="new_container">
+			<div class="block_body">
+				<div class="block_header">
+					<div class="title">новости</div>
+					<div class="news_subtitle subtitle_1">Архив новостей</div>
+					<div class="news_archive_years">
+						<a href="{% url 'news_archive' %}" class="news_year">Все новости</a>
+						{% for year in years %}
+							<a href="{% url 'news_archive' year %}" class="news_year">{{ year }} год</a>
+						{% endfor %}
+					</div>
+				</div>
+				<div class="new_column column block_body_content">
+					<div class="new_item item">
+						<div class="news_item_body item_body">
+							<div class="news_item_top">
+								<div class="news_item_date">{{ news_item.date_publication }}</div>
+								<div class="news_item_title title_2">{{ news_item.title }}</div>
+							</div>
+							<div class="news_item_bottom">
+                {% if news_item.image %}
+								  <img src="{{ news_item.image.url }}" alt="" width="300px">
+                {% endif %}
+								<div class="new_item_text">{{ news_item.article|safe }}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock page %}

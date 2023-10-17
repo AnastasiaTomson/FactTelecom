@@ -1,0 +1,14 @@
+.dynamic-phone {
+    display: block;
+}
+
+.dynamic-phone p {
+    display: flex;
+    gap: 20px;
+    margin: 5px 0;
+}
+
+.contact-phones select{
+    height: 100px;
+    width: 100%;
+}

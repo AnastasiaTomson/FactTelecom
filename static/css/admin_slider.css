@@ -1,0 +1,8 @@
+.column {
+flex: 20%;
+}
+
+.img_download img {
+width: 235px;
+height: 144px;
+}

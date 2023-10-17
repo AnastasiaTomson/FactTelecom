@@ -1,0 +1,122 @@
+{% extends 'sitepages/index.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="/static/css/cctv.css">
+    <link rel="stylesheet" href="/static/css/shop_block.css">
+    <link rel="stylesheet" href="/static/css/shop.css">
+{% endblock head %}
+
+{% block page %}
+    <div class="page block center">
+        <div class="page_container">
+            <div class="top page_block">
+                <div class="center_page_header">
+                    <div class="cctv_title title">Видеонаблюдение</div>
+                    <p>Услуга «Видеонаблюдение» — это дополнительные возможности <br>при подключении к
+                        сети Интернет</p>
+                </div>
+                <div class="cctv_advant">
+                    <div class="cctv_advant_item">
+                        <img src="/media/icon/cctv/clock.svg" alt="">
+                        <div class="cctv_advant_item_text">
+                            <p class="title_2">Быстрое <br>подключение</p>
+                            <p>Подключение оборудования <br>за 5 минут</p>
+                        </div>
+                    </div>
+                    <div class="cctv_advant_item">
+                        <img src="/media/icon/cctv/global.svg" alt="">
+                        <div class="cctv_advant_item_text">
+                            <p class="title_2">Просмотр камер <br>из любой точки мира</p>
+                            <p>Оборудование легко настроить <br>для работы в нашей сети</p>
+                        </div>
+                    </div>
+                    <div class="cctv_advant_item">
+                        <img src="/media/icon/cctv/cloud.svg" alt="">
+                        <div class="cctv_advant_item_text">
+                            <p class="title_2">Облачный видеоархив <br>от 7 до 30 суток</p>
+                            <p>Просмотр записей <br>в удобное вам время</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cctv_equipment page_block">
+                <p class="page_block_title">Оборудование, с которым мы работаем</p>
+                <div class="cctv_equipment_items block_body">
+                        {% for cctv_equipment in cctv_equipments %}
+                            <div class="shop_column column">
+                                <div class="shop_item item">
+                                    <div class="shop_item_body item_body">
+                                        <div class="shop_item_top">
+                                            <div class="shop_item_img product_img"><img
+                                                    src="{{ cctv_equipment.good.image.url }}"
+                                                    alt="{{ cctv_equipment.good.title }}">
+                                            </div>
+                                            <div class="shop_item_title">{{ cctv_equipment.good.title }}</div>
+                                            <div class="shop_item_text subtitle_2">{{ cctv_equipment.good.description|safe|truncatechars_html:30 }}
+                                            </div>
+                                        </div>
+                                        <div class="shop_item_bottom">
+                                            <span class="price"> {{ cctv_equipment.good.price }} ₽</span>
+                                            <a href="{% url 'product' cctv_equipment.good.id %}">Подробнее</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                </div>
+{#                <a href="{% url 'shop' %}" class="btn" style="min-width: 255px">Перейти в магазин</a>#}
+            </div>
+            <div class="cctv_services page_block">
+                <p class="page_block_title">Дополнительные услуги</p>
+                <div class="cctv_services_content">
+                    <div class="cctv_services_items">
+                        {% for category_cctv_service in category_cctv_services %}
+                            {% if category_cctv_service.additionalcctvservices_set.count %}
+                                <details class="cctv_services_item">
+                                    <summary class="service_drop">
+                                        <p>{{ category_cctv_service.title }}</p>
+                                        <svg style="margin-top:8px;" width="16"
+                                             height="7" viewBox="0 0 22 11"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M21 1.33301L11 9.66634L1 1.33301"/>
+                                        </svg>
+                                    </summary>
+                                    <div class="cctv_service_content">
+                                        {% for service in category_cctv_service.additionalcctvservices_set.all %}
+                                            {% if service.is_visible %}
+                                                <div class="row">
+                                                    <p>{{ service.title }}</p>
+                                                    <span>{{ service.price }} {{ service.get_price_unit_display }}</span>
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </details>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <form id="connection-form" class="send_applic page_block" action="" style="color: #fff">
+                        <p class="page_block_title">Отправить заявку</p>
+                        <div class="send_applic_form_items block_body">
+                            <div class="send_applic_form_inputs">
+                                <label class="connecting_form_input">Ваше имя
+                                    <input type="text" class="name" name="connection_name" required>
+                                </label>
+                                <label class="connecting_form_input">Номер телефона
+                                    <input type="tel" id="phone" class="phone" name="connection_phone" required>
+                                </label>
+                            </div>
+                            <div onclick="SendSupportMessagePhoneName(this, 'видеонаблюдение')"
+                                 class="btn scnd">Отправить
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock page %}
+
+{% block script %}
+    <script src="/static/js/front/feedback.js"></script>
+{% endblock script %}

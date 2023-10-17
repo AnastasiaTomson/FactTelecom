@@ -1,0 +1,76 @@
+{% extends 'sitepages/index.html' %}
+
+{% block head %}
+	<link rel="stylesheet" href="/static/css/cctv.css">
+{% endblock head %}
+
+{% block page %}
+	<div class="page center">
+		<div class="page block">
+			<div class="page_container">
+				<div class="top page_block">
+					<div class="center_page_header">
+						<div class="title">апекс для бизнеса</div>
+						<p>Новые возможности для развития вашего бизнеса</p>
+					</div>
+					<img src="/media/business/business.jpg" alt="изображение" style="max-width: 100%">
+				</div>
+				<div class="corp_internet page_block">
+					<p class="page_block_title">Корпоративный интернет</p>
+					<div class="cctv_advant">
+						<div class="cctv_advant_item">
+							<img src="/media/business/net.png" alt="">
+							<p>Доступ к сети Интернет</p>
+							<span>на скорости до 1000 Мбит/с</span>
+						</div>
+						<div class="cctv_advant_item">
+							<img src="/media/business/ip.png" alt="">
+							<p>Постоянный реальный</p>
+							<span>IP-адрес</span>
+						</div>
+						<div class="cctv_advant_item">
+							<img src="/media/business/speed.png" alt="">
+							<p><span>Стабильная и высокая</span> <br>
+								скорость передачи данных</p>
+						</div>
+					</div>
+				</div>
+				<div class="corp_tv page_block">
+					<p class="page_block_title">Телевидение для бизнеса</p>
+					<div class="cctv_advant">
+						<div class="cctv_advant_item">
+							<img src="/media/business/device.png" alt="устройства">
+							<p><span>Огромный выбор контента</span><br>(до 200 каналов на ваш выбор)</p>
+						</div>
+						<div class="cctv_advant_item">
+							<img src="/media/business/hd.png" alt="">
+							<p><span>Просмотр на 3-х устройствах:</span><br>телевизор, компьютер, смартфон</p>
+						</div>
+						<div class="cctv_advant_item">
+							<img src="/media/business/pause.png" alt="">
+							<p><span>Управление просмотром: </span><br>пауза, перемотка, архив передач</p>
+						</div>
+					</div>
+				</div>
+
+				<form id="connection-form" class="send_applic page_block" action="" style="color: #fff">
+					<p class="page_block_title">Отправить заявку</p>
+					<div class="send_applic_form_items block_body">
+						<div class="send_applic_form_inputs">
+							<label class="connecting_form_input">Ваше имя
+								<input type="text" class="name" name="connection_name" required>
+							</label>
+							<label class="connecting_form_input">Номер телефона
+								<input type="tel" id="phone" class="phone" name="connection_phone" required>
+							</label>
+						</div>
+						<div onclick="SendSupportMessagePhoneName(this, 'для бизнеса')"
+						     class="btn scnd">Отправить
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	</div>
+{% endblock page %}

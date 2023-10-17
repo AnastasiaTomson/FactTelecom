@@ -1,0 +1,77 @@
+
+/*------------connectivity_form-------------*/
+
+.connectivity_form {
+display: flex;
+flex: 1 1 35%;
+}
+
+.connectivity_form_content {
+width: 80%;
+}
+
+.connectivity_body {
+display: flex;
+flex-direction: column;
+justify-content: center;
+margin: 20px 0 0 0;
+}
+
+.connectivity_inputs {
+display: flex;
+flex-direction: column;
+margin: 0 0 40px 0;
+gap: 20px;
+}
+
+.connectivity_input input {
+width: 100%;
+}
+
+.connectivity_btn {
+padding: 0 45px;
+}
+
+@media(max-width:1280px) {
+.connectivity_form {
+justify-content: center;
+}
+.connectivity_form_container {
+justify-content: center;
+}
+.connectivity_form_content {
+width: 100%;
+}
+.title_1 {
+text-align: center;
+font-size: calc(18px + (25 - 18) * ((100vw - 320px) / (1260 - 320)));
+}
+.connectivity_body {
+align-items: center;
+}
+.connectivity_inputs {
+flex-direction: row;
+margin: 0 0 calc(15px + (40 - 15) * ((100vw - 320px) / (1260 - 320))) 0;
+}
+.house {
+min-width: 80px;
+}
+.street {
+min-width: 200px;
+}
+.connectivity_btn {
+width: max-content;
+}
+}
+
+@media(max-width:620px) {
+.connectivity_input, .connectivity_btn {
+width: 100%;
+}
+.connectivity_inputs {
+flex-wrap: wrap;
+gap: 15px;
+}
+}
+
+

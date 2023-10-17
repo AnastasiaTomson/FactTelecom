@@ -1,0 +1,156 @@
+.content {
+max-width: 850px;
+width: 100%;
+margin-top: 65px;
+}
+
+.support_block {
+display: flex;
+flex-direction: column;
+gap: 15px;
+}
+
+.support_block:last-child {
+margin-bottom: 15px;
+}
+
+details > summary {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  }
+
+summary img {
+width: 17px;
+}
+
+summary > img {
+margin-left: 15px;
+}
+
+details[open] > summary img {
+transform: rotate(180deg);
+}
+
+.support_item_header {
+display: flex;
+align-items: center;
+}
+
+.support_item_icon {
+background-color: #0b9fef;
+height: 24px;
+width: 24px;
+min-width: 24px;
+border-radius: 50%;
+font-size: 18px;
+font-weight: 600;
+line-height: 100%;
+color: #fff;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-right: 15px;
+}
+
+.support_item_icon img {
+height: 18px;
+}
+
+.support_item_title {
+font-weight: 600;
+}
+
+.support_block_item_content {
+margin-top: 30px;
+font-size: 14px;
+}
+
+.support_block_item_content li{
+  list-style: inherit!important;
+}
+
+.support_block_item_content ol {
+margin-left: 20px;
+}
+
+.support_block_item_content a{
+  color: #0b9fef;
+}
+
+.tel_support {
+padding: 10px 0;
+}
+
+.sub_bottom {
+display: none;
+padding: 0 15px;
+}
+
+
+.question_tags, .instruction_tags {
+display: flex;
+flex-wrap: wrap;
+padding: 15px;
+margin-bottom: 25px;
+gap: 10px;
+}
+
+.question_tag, .instruction_tag {
+display: inline-block;
+}
+
+
+.question_tag label, .instruction_tag label {
+display: inline-block;
+cursor: pointer;
+padding: 0px 13px;
+line-height: 35px;
+user-select: none;
+font-size: 14px;
+font-weight: 500;
+}
+
+.question_tag input[type=radio], .instruction_tag input[type=radio]{
+display: none;
+}
+
+.question_tag input:checked + label, .instruction_tag input:checked + label {
+border: 1.5px solid #0b9fef;
+border-radius: 6px;
+}
+
+.question_tag label:hover, .instruction_tag label:hover {
+color: #0b9fef;
+}
+
+
+
+@media(max-width:1300px) {
+.support_block {
+max-width: none;
+}
+.sub_bottom {
+display: block;
+}
+.block_header .subtitle_1 {
+display: none;
+}
+.content {
+margin-top: -20px;
+max-width: none;
+}
+.question_tags, .instruction_tags {
+justify-content: center;
+margin-bottom: 5px;
+}
+}
+
+@media(max-width:390px) {
+.tab-item {
+flex: 100%;
+max-width: none;
+}
+}

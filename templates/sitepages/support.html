@@ -1,0 +1,148 @@
+{% extends 'sitepages/tv.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="/static/css/tv.css">
+    <link rel="stylesheet" href="/static/css/lk.css">
+    <link rel="stylesheet" href="/static/css/shop.css">
+    <link rel="stylesheet" href="/static/css/lk_tarify_tv.css">
+    <link rel="stylesheet" href="/static/css/support.css">
+{% endblock head %}
+
+
+{% block page %}
+    <div class="support_page">
+        <div class="page block side">
+            <div class="support_container">
+                <div class="tabs block_body">
+                    {% block block_header %}
+                        <div class="block_header">
+                            <p class="title">Техническая поддержка</p>
+                            <nav class="tabs-menu">
+                                {% if questions %}
+                                    <a class="tab-item select active"
+                                       onclick="selected_support_category(this, 'questions')">Вопросы
+                                        и
+                                        ответы</a>
+                                {% endif %}
+                                {% if instructions %}
+                                    <a class="tab-item select"
+                                       onclick="selected_support_category(this, 'instructions')">Инструкции</a>
+                                {% endif %}
+                            </nav>
+                            <div class="subtitle_1" style="font-size: 14px">
+                                <p>Если вы не нашли ответ на свой вопрос, свяжитесь с нами:</p>
+                                <div class="tel_support">
+                                    <p>+7 (978) 202 47 47</p>
+                                    <p>+7 (978) 202 48 48</p>
+                                    <p>+7 (978) 800 25 25</p>
+                                </div>
+                                <p>Ежедневно с 9:00 до 21:00</p>
+                            </div>
+                        </div>
+                    {% endblock block_header %}
+                    {% block content %}
+                        <div class="content">
+                            <div class="question_tags">
+                                <div class="question_tag">
+                                    <input id="question_category_all"
+                                           type="radio"
+                                           name="question_category"
+                                           value="0"
+                                           checked>
+                                    <label for="question_category_all">Все</label>
+                                </div>
+                                {% for category in categories %}
+                                    <div class="question_tag">
+                                        <input id="question_category_{{ category.id }}"
+                                               type="radio"
+                                               name="question_category"
+                                               value="{{ category.id }}">
+                                        <label for="question_category_{{ category.id }}">{{ category.name }}</label>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <div class="instruction_tags">
+                                <div class="instruction_tag">
+                                    <input id="instruction_category_all"
+                                           type="radio"
+                                           name="instruction_category"
+                                           value="0"
+                                           checked>
+                                    <label for="instruction_category_all">Все</label>
+                                </div>
+                                {% for category in categories %}
+                                    {% if category.instruction_set.exists %}
+                                        <div class="instruction_tag">
+                                            <input id="instruction_category_{{ category.id }}"
+                                                   type="radio"
+                                                   name="instruction_category"
+                                                   value="{{ category.id }}">
+                                            <label for="instruction_category_{{ category.id }}">{{ category.name }}</label>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                            <div class="block_body_content">
+                                {% if questions %}
+                                    <div class="questions support_block">
+                                        {% for question in questions %}
+                                            <details class="support_block_item item"
+                                                     data-categories="{% for category in question.categories.all %}{{ category.id }}{% if not forloop.last %},{% endif %}{% endfor %}">
+                                                <summary>
+                                                    <div class="support_item_header">
+                                                        <span class="support_item_icon">
+                                                            ?
+                                                        </span>
+                                                        <p class="support_item_title">{{ question.question }}</p>
+                                                    </div>
+                                                    <img src="/media/icon/details_arrow.svg" alt="">
+                                                </summary>
+                                                <div class="support_block_item_content">
+                                                    {{ question.answer|safe }}
+                                                </div>
+                                            </details>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                {% if instructions %}
+                                    <div class="instructions support_block">
+                                        {% for instruction in instructions %}
+                                            <details class="support_block_item item"
+                                                     data-categories="{% for category in instruction.categories.all %}{{ category.id }}{% if not forloop.last %},{% endif %}{% endfor %}">
+                                                <summary>
+                                                    <div class="support_item_header">
+                                                        <span class="support_item_icon">
+                                                            <img src="/media/icon/instructions.svg" alt="">
+                                                        </span>
+                                                        <p class="support_item_title">{{ instruction.question }}</p>
+                                                    </div>
+                                                    <img src="/media/icon/details_arrow.svg" alt="">
+                                                </summary>
+                                                <div class="support_block_item_content">
+                                                    {{ instruction.answer|safe }}
+                                                </div>
+                                            </details>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="subtitle_1 sub_bottom" style="font-size: 14px">
+                                <p>Если вы не нашли ответ на свой вопрос, свяжитесь с нами:</p>
+                                <div class="tel_support">
+                                    <p>+7 (978) 202 47 47</p>
+                                    <p>+7 (978) 202 48 48</p>
+                                    <p>+7 (978) 800 25 25</p>
+                                </div>
+                                <p>Ежедневно с 9:00 до 21:00</p>
+                            </div>
+                        </div>
+                    {% endblock content %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock page %}
+{% block script %}
+    {{ block.super }}
+    <script src="/static/js/support.js"></script>
+{% endblock %}

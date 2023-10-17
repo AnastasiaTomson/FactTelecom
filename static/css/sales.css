@@ -1,0 +1,39 @@
+.sale:not(:last-child) {
+margin-bottom: 25px;
+}
+
+.sale .row:nth-child(odd) {
+background-color: #fff;
+}
+
+.sale .row:nth-child(even) {
+background-color: #F3F3F3;
+}
+
+.sale:not(:last-child) {
+border-bottom: 1px solid #BDBDBD;
+}
+
+.date_row {
+font-weight: 700;
+font-size: 16px;
+}
+
+.show_range {
+margin-bottom: 35px;
+}
+
+.show_range span {
+font-size: 15px;
+font-weight: 600;
+}
+
+.show_range input {
+font-size: 16px;
+margin: 0 5px;
+border: 1px solid #BDBDBD;
+}
+
+.textares {
+color: #000;
+}

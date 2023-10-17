@@ -1,0 +1,807 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+
+    <meta charset="utf-8">
+    <title>FastTelecom</title>
+    <link rel="icon" href="/static/img/small_logo.svg" type="image/png" sizes="32x32">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Интернет провайдер FastTelecom">
+    <meta name="yandex-verification" content="51f2ab8a5acce5a2"/>
+    <link rel="stylesheet" href="/static/css/style.css?version=1">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/footer.css">
+    <link rel="stylesheet" href="/static/css/modal.css">
+
+    {% block head %}
+        <link rel="stylesheet" href="/static/css/main_block.css?version=1">
+        <link rel="stylesheet" href="/static/css/bestseller_block.css">
+        <link rel="stylesheet" href="/static/css/app_block.css">
+        <link rel="stylesheet" href="/static/css/shop_block.css">
+        <link rel="stylesheet" href="/static/css/tv_block.css">
+        <link rel="stylesheet" href="/static/css/services_block.css">
+        <link rel="stylesheet" href="/static/css/connecting_block.css">
+        <link rel="stylesheet" href="/static/css/news_block.css">
+        <link rel="stylesheet" href="/static/css/calendar.css">
+        <link rel="stylesheet" href="/static/css/connectivity_form.css">
+        <link rel="stylesheet" href="/static/css/connecting_form.css">
+    {% endblock head %}
+    <link rel="stylesheet" href="/static/css/simple-adaptive-slider.min.css">
+    <script defer src="/static/js/front/simple-adaptive-slider.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // инициализация слайдера
+            var slider = new SimpleAdaptiveSlider('.slider', {
+                autoplay: true,
+                interval: 5000,
+            });
+        });
+    </script>
+    <style>
+
+        /* дополнительные стили для этого примера */
+        .slider__items {
+            counter-reset: slide;
+        }
+
+        .slider__item {
+            position: relative;
+            counter-increment: slide;
+        }
+
+        .img-fluid {
+            display: inline-block;
+            height: auto;
+            max-width: 100%;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+<!------------ МОДАЛЬНЫЕ ОКНА -------------->
+
+<div class="wrapper">
+
+    {% block header %}
+        <header class="header">
+            <div class="header_top">
+                <div class="header_top_container _container">
+                    <div class="burger-menu">
+                        <div class="menu-btn">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="menubox">
+                            <ul class="menubox1">
+                                <li><a class="menu-item" href="">Покрытие</a></li>
+                                <li><a class="menu-item" href="">Контакты</a></li>
+                            </ul>
+                            <ul class="menubox2">
+
+                                    <li><a class="menu-item">Интернет</a></li>
+
+                                    <li><a class="menu-item">Телевидение</a></li>
+
+                                    <li><a class="menu-item">Видеонаблюдение</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="menu_top_left_list">
+                        <li class="menu_top_item"><a class="menu_link" href="">Покрытие</a></li>
+                        <li class="menu_top_item"><a class="menu_link" href="">Контакты</a></li>
+                    </ul>
+                    <ul class="menu_top_right_list">
+                        <li class="menu_top_item lk_menu_item">
+                            <a href="" class="lk_click js-open-modal menu_link" data-modal="1">Личный кабинет</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="header_bottom">
+                <div class="header_bottom_container _container">
+                    <div class="menu_bottom_logo"><a href="" class="menu_link"><img
+                            src="/static/img/logo.svg" alt="логотип"></a>
+                    </div>
+                    <ul class="menu_bottom_list">
+                        <li class="menu_bottom_item">
+                            <a class="menu_link">Интернет</a>
+                        </li>
+                        <li class="menu_bottom_item">
+                            <a class="menu_link">Телевидение</a>
+                        </li>
+                        <li class="menu_bottom_item">
+                            <a class="menu_link">Видеонаблюдение</a>
+                        </li>
+                    </ul>
+                    <div class="menu_bottom_right">
+                        <a class="menu_bottom_tel_link">+7 (906) 700 01 10</a>
+                        <p class="menu_bottom_right_connect">Подключиться</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+    {% endblock header %}
+
+    {% block page %}
+        <div class="to-top"><img src="/static/img/to-top.svg" alt="Наверх" title="Наверх"></div>
+        <div class="main_page">
+
+            <!------------ ГЛАВНЫЙ ЭКРАН -------------->
+
+            <div class="page_main-block main-block">
+                <div class="main-block_container">
+                    {% block slider %}
+                        <div class="slider">
+                            <div class="slider__wrapper">
+                                <div class="slider__items">
+                                    <div class="slider__item">
+                                        <a href="" target="_blank" rel="noopener noreferrer">
+                                            <img class="img-fluid" src="/static/img/slider/slider.jpg"
+                                                 loading="lazy">
+                                        </a>
+                                    </div>
+                                    <div class="slider__item">
+                                        <a href="" target="_blank" rel="noopener noreferrer">
+                                            <img class="img-fluid" src="/static/img/slider/slider2.jpg"
+                                                 loading="lazy">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endblock slider %}
+                    <div class="forms" style="z-index: 3">
+                        {% block balance_form %}
+                            <div class="form_balance item form">
+                                <div class="item_body main-block_item_body form_balance_content">
+                                    <div class="form_balance_header">
+                                        <div class="form_balance_title title_2">ПОПОЛНИТЬ БАЛАНС</div>
+                                        <div class="form_balance_radio_buttons">
+                                            <div class="form_balance_radio">
+                                                <input id="internet" type="radio" name="balance" value="1" checked>
+                                                <label for="internet">Интернет</label>
+                                            </div>
+                                            <div class="form_balance_radio">
+                                                <input id="tv" type="radio" name="balance" value="2">
+                                                <label for="tv">Телевидение</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a class="form_balance_btn btn visible" id="balance_internet"
+                                       target="_blank">Пополнить</a>
+                                    <a class="form_balance_btn btn" id="balance_tv"
+                                       target="_blank">Пополнить</a>
+                                    <div class="form_balance_bottom">
+                                        <p class="subtitle_3">* Система взимает комиссию</p>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <script>
+                                function balanceToggle(type) {
+                                    let visibleClass = 'visible';
+                                    let btnInternet = document.querySelector('.form_balance #balance_internet');
+                                    let btnTv = document.querySelector('.form_balance #balance_tv');
+                                    if (type === 'internet') {
+                                        btnInternet.classList.add(visibleClass);
+                                        btnTv.classList.remove(visibleClass);
+                                    } else {
+                                        btnTv.classList.add(visibleClass);
+                                        btnInternet.classList.remove(visibleClass);
+                                    }
+                                }
+
+                                document.querySelector('.form_balance #internet').addEventListener('click', function () {
+                                    if (this.checked) {
+                                        balanceToggle('internet');
+                                    }
+                                });
+                                document.querySelector('.form_balance #tv').addEventListener('click', function () {
+                                    if (this.checked) {
+                                        balanceToggle('tv');
+                                    }
+                                });
+                            </script>
+                        {% endblock %}
+                        <form id="support-form" class="form_connect item form">
+                            <div class="item_body main-block_item_body form_connect_content">
+                                <div class="form_connect_header">
+                                    <div class="form_connect_title title_2">СТАТЬ АБОНЕНТОМ</div>
+                                    <div class="form_connect_subtitle subtitle_3"> Вам перезвонит оператор
+                                    </div>
+                                </div>
+                                <div class="input_block">
+                                    <input type="tel" id="phone" name="support-phone" class="input_tel phone"
+                                           placeholder="Номер телефона"
+                                           required>
+                                </div>
+                                <div class="btn">Оставить заявку</div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!------------ ХИТ ПРОДАЖ -------------->
+
+            <div class="page_bestseller center block">
+                <div class="bestseller_container">
+                    <div class="block_header">
+                        <div class="title" style="color: #fff">хит продаж</div>
+                    </div>
+                    <div class="block_body">
+                        <div class="bestseller_column column">
+                            <div class="bestseller_item item_bestseller item">
+                                <div class="bestseller_item_body item_body">
+                                    <div class="bestseller_item_top">
+                                        <div class="bestseller_item_header">
+                                            <div class="bestseller_item_icon"><img src="/media/icon/bestseller/tv.svg"
+                                                                                   alt="">
+                                            </div>
+                                            <div class="bestseller_item_title title_2">100 МЕГАБИТ + ТВ + AMEDIATEKA
+                                            </div>
+                                        </div>
+                                        <div class="bestseller_item_content">
+                                            <ul>
+
+                                                <li>работает везде, где есть интернет</li>
+
+
+                                                <li>любые три устройства: телевизор, смартфон и ноутбук</li>
+
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="bestseller_item_bottom">
+                                        <a class="bestseller_item_btn btn js-open-modal" data-modal="8">Подключить за
+                                            950 руб./мес</a>
+                                        <div class="bestseller_item_details">
+                                            <a href="">Подробнее</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bestseller_column column">
+                            <div class="bestseller_item item_bestseller item">
+                                <div class="bestseller_item_body item_body">
+                                    <div class="bestseller_item_top">
+                                        <div class="bestseller_item_header">
+                                            <div class="bestseller_item_icon"><img
+                                                    src="/media/icon/bestseller/webcam.svg" alt="">
+                                            </div>
+                                            <div class="bestseller_item_title title_2">Видеонаблюдение</div>
+                                        </div>
+                                        <div class="bestseller_item_content">
+                                            <ul>
+
+                                                <li>подключение за 5 минут</li>
+
+
+                                                <li>просмотр камер из любой точки мира</li>
+
+
+                                                <li>облачный видеоархив от 7 до 30 суток</li>
+
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="bestseller_item_bottom">
+                                        <a class="bestseller_item_btn btn js-open-modal" data-modal="8">Подключить от
+                                            800 руб./мес</a>
+                                        <div class="bestseller_item_details">
+                                            <a href="">Подробнее</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!------------ ТЕЛЕВИДЕНИЕ -------------->
+
+            <div class="page_tv center block">
+                <div class="tv_container">
+                    <div class="block_header">
+                        <div class="title" style="color: #fff;">Интерактивное тв</div>
+                    </div>
+                    <div class="tv_body block_body">
+                        <div class="tv_image"><img src="/static/img/tv.png" alt=""></div>
+                        <div class="tv_rows">
+                            <div class="tv_row">
+                                <div class="tv_item">
+                                    <span class="tv_item_number">01</span>
+                                    <div class="tv_item_text">
+                                        <div class="tv_item_text_title title_2">ТВ в кармане и дома</div>
+                                        <div class="tv_item_text_subtitle">Любимые передачи всегда с вами: везде, где
+                                            есть
+                                            интернет
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tv_item">
+                                    <span class="tv_item_number">02</span>
+                                    <div class="tv_item_text">
+                                        <div class="tv_item_text_title title_2">Онлайн кинотеатр</div>
+                                        <div class="tv_item_text_subtitle">Более 6000 наименований, от классики до
+                                            лучших
+                                            новинок
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tv_item">
+                                    <span class="tv_item_number">03</span>
+                                    <div class="tv_item_text">
+                                        <div class="tv_item_text_title title_2">Более 200 каналов</div>
+                                        <div class="tv_item_text_subtitle">Огромный выбор контента, каналы в HD-качестве
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tv_row">
+                                <div class="tv_item">
+                                    <span class="tv_item_number">04</span>
+                                    <div class="tv_item_text">
+                                        <div class="tv_item_text_title title_2">На любом устройстве</div>
+                                        <div class="tv_item_text_subtitle">Смартфон, планшет, компьютер, телевизор</div>
+                                    </div>
+                                </div>
+                                <div class="tv_item">
+                                    <span class="tv_item_number">05</span>
+                                    <div class="tv_item_text">
+                                        <div class="tv_item_text_title title_2">Управление эфиром</div>
+                                        <div class="tv_item_text_subtitle">Ставьте эфир на паузу, отложите просмотр, и
+                                            тд.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tv_item">
+                                    <span class="tv_item_number">06</span>
+                                    <div class="tv_item_text">
+                                        <div class="tv_item_text_title title_2">7 дней на просмотр</div>
+                                        <div class="tv_item_text_subtitle">“Смотрёшка” хранит эфир вещания за неделю
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="" class="tv_btn btn">Подключить ТВ</a>
+                </div>
+            </div>
+
+            <!------------ ДОП. УСЛУГИ -------------->
+
+            <div class="page_services center block">
+                <div class="services_container">
+                    <div class="block_header">
+                        <div class="title">Дополнительные услуги</div>
+                    </div>
+                    <div class="services_body block_body">
+
+                        <div class="services_column column">
+                            <div class="services_item item">
+                                <div class="services_item_body item_body">
+                                    <div class="services_item_top">
+                                        <div class="services_item_icon"><img
+                                                src="/media/icon/additional_services/sms.svg" alt="icon">
+                                        </div>
+                                        <div class="services_item_title title_2">СМС-информирование</div>
+                                        <div class="services_item_subtitle subtitle_2">Информирование о начислении
+                                            денежных средств и остатке на вашем счету по СМС на мобильный телефон.
+                                            Стоимость услуги — 10 рублей в месяц.
+                                        </div>
+                                    </div>
+                                    <a href="" class="js-open-modal" data-modal="service_1">Подробнее</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="services_column column">
+                            <div class="services_item item">
+                                <div class="services_item_body item_body">
+                                    <div class="services_item_top">
+                                        <div class="services_item_icon"><img
+                                                src="/media/icon/additional_services/lock.svg" alt="icon">
+                                        </div>
+                                        <div class="services_item_title title_2">Авторизация</div>
+                                        <div class="services_item_subtitle subtitle_2">Гостиницы, бары, рестораны</div>
+                                    </div>
+                                    <a href="" class="js-open-modal" data-modal="service_3">Подробнее</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="services_column column">
+                            <div class="services_item item">
+                                <div class="services_item_body item_body">
+                                    <div class="services_item_top">
+                                        <div class="services_item_icon"><img
+                                                src="/media/icon/additional_services/location.svg" alt="icon">
+                                        </div>
+                                        <div class="services_item_title title_2">Статический IP-адрес</div>
+                                        <div class="services_item_subtitle subtitle_2">Ваш личный надежный канал выхода
+                                            в интернет
+                                        </div>
+                                    </div>
+                                    <a href="" class="js-open-modal" data-modal="service_4">Подробнее</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!------------ ФОРМА ПОДКЛЮЧЕНИЯ -------------->
+
+            <div class="page_connecting">
+                <div class="connecting_block_container" style="padding: 0!important;">
+                    <form id="connection-form" class="connecting_form block center">
+                        {% csrf_token %}
+                        <div class="connecting_form_content connecting_block_content">
+                            <div class="block_header">
+                                <div class="title" style="color: #fff">Подключиться к <span
+                                        style="text-transform: none">«FastTelecom»</span></div>
+                            </div>
+                            <div class="connecting_body">
+                                <div class="connecting_date">
+                                    <div class="connecting_date_title title_2">Выберите желаемую дату</div>
+                                    <div class="connecting_calendar" style="display: block; margin: auto;">
+                                        <div id="calendar_table"></div>
+                                    </div>
+                                </div>
+                                <div class="connecting_form_right">
+                                    <div class="connecting_form_inputs">
+                                        <label class="connecting_form_input">Ваше имя
+                                            <input type="text" class="name" name="connection_name" required>
+                                        </label>
+                                        <label class="connecting_form_input">Номер телефона
+                                            <input type="tel" id="phone" class="phone" name="connection_phone" required>
+                                        </label>
+                                    </div>
+                                    <div class="connecting_form_btn btn scnd"
+                                         onclick="SendApplicationForConnectionMessage(this)">Подключиться
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% endblock page %}
+
+    {% block footer %}
+        <footer class="footer block">
+            <div class="footer_container">
+                <div class="footer_body">
+                    <div class="footer_row">
+                        <div class="footer_column footer_column_contacts">
+
+                            <div class="column_contacts">
+                                <div class="footer_column_title">Отдел подключений</div>
+                                <ul class="footer_tel_list">
+                                    <li><a class="footer_menu_link">+7 (999) 700 30 30</a></li>
+                                </ul>
+                                <p class="time">Пн-Пт с 9-00 до 18-00</p>
+                            </div>
+
+                            <div class="column_contacts">
+                                <div class="footer_column_title">Техподдержка</div>
+                                <ul class="footer_tel_list">
+                                    <li><a class="footer_menu_link">+7 (999) 700 30 31</a></li>
+                                    <li><a class="footer_menu_link">+7 (999) 700 30 32</a></li>
+                                </ul>
+                                <p class="time">ежедневно с 9-00 до 21-00</p>
+                            </div>
+
+                            <div class="column_contacts">
+                                <div class="footer_column_title">Касса</div>
+                                <ul class="footer_tel_list">
+                                    <li><a class="footer_menu_link">+7 (999) 700 30 33</a></li>
+                                </ul>
+                                <p class="time">ежедневно с 9-00 до 18-00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_row">
+                        <div class="footer_column column_3">
+
+                            <div class="footer_column_title">Услуги</div>
+                            <ul class="footer_column_menu">
+
+                                <li><a class="footer_menu_link">Интернет</a></li>
+
+                                <li><a class="footer_menu_link">Телевидение</a></li>
+
+                                <li><a class="footer_menu_link">Видеонаблюдение</a></li>
+
+                            </ul>
+
+                        </div>
+                        <div class="footer_column">
+
+                            <div class="footer_column_title">О компании</div>
+                            <ul class="footer_column_menu">
+
+                                <li><a class="footer_menu_link" href="">Контакты</a></li>
+
+                                <li><a class="footer_menu_link" href="">Зона покрытия</a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="footer_copyright">© 2023 ООО «FastTelecom». Все права защищены.</div>
+            </div>
+        </footer>
+    {% endblock footer %}
+
+</div>
+
+<div class="modal_windows">
+    <form class="lk_enter modal item" id="login-window" action="" method="post" data-modal="1"
+          style="max-width: 400px">
+        {% csrf_token %}
+        <a class="modal__cross js-modal-close">+</a>
+        <div class="modal_content">
+            <p class="modal__title title_2">АВТОРИЗАЦИЯ</p>
+            <p class="modal_descript">Введите логин и пароль</p>
+            <div class="modal_item">
+                <input type="text" placeholder="Логин" required="required" name="username">
+                <div class="password">
+                    <input type="password" id="password-input" placeholder="Пароль" required="required" name="password">
+                    <a class="password-control"></a>
+                </div>
+            </div>
+            <button class="btn">Войти</button>
+        </div>
+    </form>
+    <form class="success modal item" data-modal="2">
+        <a class="modal__cross js-modal-close">+</a>
+        <div class="modal_content">
+            <p class="modal__title title_2">ЗАЯВКА ОТПРАВЛЕНА</p>
+            <p class="modal_text">В ближайшее время с Вами свяжется наш сотрудник</p>
+        </div>
+    </form>
+    <form class="check_connect modal item" id="connection-request-form" data-modal="3">
+        <a class="modal__cross js-modal-close">+</a>
+        <div class="modal_content">
+            <p class="modal__title title_2">АДРЕС <span class="no">НЕ</span> ОБСЛУЖИВАЕТСЯ</p>
+            <p class="modal_descript">Дом по адресу "<span class="address"></span>" <span
+                    class="no">не</span> подключен.</p>
+            <p class="modal_text">Заполните короткую форму и с Вами свяжется наш сотрудник.</p>
+            <div class="modal_item">
+                <input type="text" name="connection-request-address" style="display: none">
+                <label>Ваше имя</label>
+                <input type="text" name="connection-request-name">
+                <label>Номер телефона</label>
+                <input class="phone" type="tel" name="connection-request-phone">
+                <label>Комментарий</label>
+                <textarea rows="3" name="connection-request-comment"></textarea>
+            </div>
+            <div onclick="SendSupportMessageConnection(this)" class="btn js-modal-close">Отправить</div>
+        </div>
+    </form>
+    <form class="internet_1 modal item" data-modal="4">
+        <a class="modal__cross js-modal-close">+</a>
+        <div class="modal_content">
+            <p class="modal__title modal_title_name title_2">20 МЕГАБИТ</p>
+            <p class="modal_descript">Безлимитный круглосуточный доступ в интернет на скорости до <span
+                    class="speed"></span>
+                Мбит/с</p>
+            <p class="modal_text">Для самостоятельного подключения зайдите в
+                <a href="" style="color:#0E57E5">личный кабинет</a></p>
+            <div class="modal_items">
+                <div class="modal_item">
+                    <div class="user_info">
+                        <label>Ваше имя</label>
+                        <input type="text" name="name" required="required">
+                        <label>Номер телефона</label>
+                        <input type="tel" class="phone" name="phone" required="required">
+                    </div>
+                    <div class="user_info">
+                        <label>Адрес подключения</label>
+                        <input type="text" name="address" required="required">
+                    </div>
+                </div>
+            </div>
+            <div onclick="SendSupportMessageConnectionWithTariff(this)" class="btn">Оформить заявку</div>
+        </div>
+    </form>
+    <form class="internet_1 modal item" data-modal="5">
+        <a class="modal__cross js-modal-close">+</a>
+        <div class="modal_content">
+            <p class="modal__title modal_title_name title_2">Тв-пакет</p>
+            <p class="modal_descript"></p>
+            <p class="modal_text">Для самостоятельного подключения зайдите в
+                <a href="" style="color:#0E57E5">личный кабинет</a></p>
+            <div class="modal_items">
+                <div class="modal_item">
+                    <div class="user_info">
+                        <label>Ваше имя</label>
+                        <input type="text" name="name" required="required">
+                        <label>Номер телефона</label>
+                        <input type="tel" class="phone" name="phone" required="required">
+                    </div>
+                    <div class="user_info">
+                        <label>Адрес подключения</label>
+                        <input type="text" name="address" required="required">
+                    </div>
+                </div>
+            </div>
+            <div onclick="SendSupportMessageConnectionWithTVTariff(this)" class="btn">Оформить заявку</div>
+        </div>
+    </form>
+    <form class="tv_modal modal item" data-modal="6">
+        <a class="modal__cross js-modal-close">+</a>
+        <div class="modal_content">
+            <p class="modal__title title_2">ОСТАВЬТЕ КОНТАКТНЫЕ ДАННЫЕ</p>
+            <p class="modal_text">Для самостоятельного подключения зайдите в
+                <a href="" style="color:#0E57E5">личный кабинет</a></p>
+            <div class="modal_item">
+                <label>Ваше имя</label>
+                <input type="text">
+                <label>Номер телефона</label>
+                <input class="phone" type="tel" required>
+                <label>Комментарий</label>
+                <textarea rows="3">Хочу подключить Стандарт</textarea>
+            </div>
+            <a href="" class="btn close-previos js-open-modal" data-modal="2">Подключить</a>
+        </div>
+    </form>
+    <form class="bestseller_modal modal item" data-modal="8">
+        <a class="modal__cross js-modal-close">+</a>
+        <div class="modal_content">
+            <p class="modal__title title_2">ОСТАВЬТЕ КОНТАКТНЫЕ ДАННЫЕ</p>
+            <p class="modal_text">Для самостоятельного подключения зайдите в
+                <a href="" style="color:#0E57E5">личный кабинет</a></p>
+            <div class="modal_item">
+                <label>Ваше имя</label>
+                <input type="text">
+                <label>Номер телефона</label>
+                <input class="phone" type="tel" required>
+                <label>Комментарий</label>
+                <textarea rows="3"></textarea>
+            </div>
+            <a href="" class="btn close-previos js-open-modal" data-modal="2">Подключить</a>
+        </div>
+    </form>
+
+    {% for item in services %}
+        <form class="services_modal modal item" data-modal="service_{{ item.id }}">
+            <a class="modal__cross js-modal-close">+</a>
+            <div class="modal_content">
+                <p class="modal__title title_2">{{ item.title }}</p>
+                <p class="modal_descript">{{ item.description|safe }}</p>
+                <p class="modal_text">Для самостоятельного подключения зайдите в
+                    <a href="" style="color:#0E57E5">личный кабинет</a></p>
+                <div class="modal_item">
+                    <label>Ваше имя</label>
+                    <input type="text">
+                    <label>Номер телефона</label>
+                    <input class="phone" type="tel" required>
+                    <label>Комментарий</label>
+                    <textarea rows="3">Хочу подключить {{ item.title }}</textarea>
+                </div>
+                <a href="" class="btn close-previos js-open-modal" data-modal="2">Подключить</a>
+            </div>
+        </form>
+    {% endfor %}
+
+    <!-- Подложка под модальным окном -->
+    <div class="overlay js-overlay-modal"></div>
+</div>
+
+<script src='/static/js/jquery.min.js'></script>
+<script>
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+</script>
+<script src="/static/js/jquery.validate.js"></script>
+<script src='/static/js/calendar.js'></script>
+<script src="/static/js/jquery.maskedinput.min.js"></script>
+<script src="/static/js/modal.js"></script>
+<script>
+    $(document).ready(function () {
+        if (location.href.includes('/?next=/lk/')) {
+            var overlay = document.querySelector('.js-overlay-modal')
+            var modalElem = document.querySelector('.modal[data-modal="1"]');
+            modalElem.classList.add('active');
+            overlay.classList.add('active');
+        }
+    })
+    $('.phone').each(function () {
+        $(this).mask("+7 (999) 999-99-99");
+    })
+</script>
+<script src="/static/js/jquery.form.js"></script>
+<script>
+    $('#login-window').ajaxForm(function (request) {
+        if (request['status']) {
+            $('.js-modal-close').click()
+            location.href = request['href']
+        } else {
+            $('#login-window .modal_descript').text(request['message'])
+        }
+    });
+
+    function LoginingFunction() {
+        $.ajax({
+            url: '/lk/login_user',
+        })
+    }
+</script>
+
+<script>
+    let menuBtn = document.querySelector('.menu-btn');
+    let menubox = document.querySelector('.menubox');
+
+    menuBtn.addEventListener('click', function () {
+        menuBtn.classList.toggle('active');
+        menubox.classList.toggle('show');
+    })
+</script>
+
+<script src='/static/js/password.js'></script>
+
+{% block script %}
+    <script src="/static/js/cover.js"></script>
+    <script src="/static/js/front/feedback.js"></script>
+    <script src='/static/js/front/slider.js'></script>
+    <script>
+        $("#basic-form").validate();
+        var curIndex = 0;
+        var imgDuration = 10000;
+        var imgArray = $('.slider').children().toArray();
+        slideShow(imgArray, imgDuration, curIndex);
+    </script>
+    <script>
+        /* Прокручивает страницу вверх при нажатии на кнопку */
+        $(window).scroll(function () {
+            var height = $(window).scrollTop();
+            if (height > 100) {
+                $('.to-top').fadeIn();
+            } else {
+                $('.to-top').fadeOut();
+            }
+        });
+        $(document).ready(function () {
+            $(".to-top").click(function (event) {
+                event.preventDefault();
+                $("html, body").animate({scrollTop: 0}, "slow");
+                return false;
+            });
+        });
+    </script>
+
+{% endblock %}
+</body>
+</html>

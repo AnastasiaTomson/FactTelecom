@@ -1,0 +1,15 @@
+.modal {
+width: 550px;
+top: 200px;
+}
+
+.img_download img {
+width: 170px;
+height: 120px;
+object-fit: cover;
+}
+
+
+
+
+

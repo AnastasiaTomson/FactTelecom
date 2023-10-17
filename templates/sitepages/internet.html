@@ -1,0 +1,208 @@
+{% extends 'sitepages/index.html' %}
+
+{% block head %}
+	<link rel="stylesheet" href="/static/css/internet.css">
+	<link rel="stylesheet" href="/static/css/lk.css">
+	<link rel="stylesheet" href="/static/css/lk_tarify_internet.css">
+	<link rel="stylesheet" href="/static/css/shop_block.css">
+	<link rel="stylesheet" href="/static/css/cctv.css">
+	<link rel="stylesheet" href="/static/css/main_block.css?version=1">
+{% endblock head %}
+
+
+{% block page %}
+	<div class="tarify">
+
+		<div class="page_main-block main-block">
+			<div class="main-block_container">
+				{% block slider %}
+					<div class="slider" style="max-width: 530px; margin-left: auto;">
+						<div class="slider__wrapper">
+							<div class="slider__items">
+								{% for foo in slider %}
+									<div class="slider__item">
+										<img class="img-fluid" src="{{ foo.image.url }}" alt="{{ foo.image.url }}"
+										     loading="lazy">
+									</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				{% endblock slider %}
+				<div class="forms">
+					<form id="support-form" class="form_connect item form">
+						<div class="item_body main-block_item_body form_connect_content">
+							<div class="form_connect_header">
+								<div class="form_connect_title title_2">СТАТЬ АБОНЕНТОМ</div>
+								<div class="form_connect_subtitle subtitle_3"> Вам перезвонит оператор
+								</div>
+							</div>
+							<div class="input_block">
+								<input type="tel" id="phone" name="support-phone" class="input_tel phone"
+								       placeholder="Номер телефона"
+								       required>
+							</div>
+							<div href="" class="btn" onclick="SendSupportMessage(this)">Оставить заявку</div>
+						</div>
+					</form>
+					{% block balance_form %}
+						{{ block.super }}
+					{% endblock %}
+				</div>
+			</div>
+		</div>
+		<div class="page block center">
+			<div class="internet_block_container">
+				{% block block_header %}
+					<div class="block_header">
+						<div class="title">Тарифы интернет</div>
+						<div class="internet_tabs">
+							{% block tabs_menu %}
+								<nav class="tabs_menu">
+									<a class="tabs-item active" data-tab="1">Многоэтажные дома</a>
+									<a class="tabs-item" data-tab="2">Частный сектор</a>
+								</nav>
+							{% endblock tabs_menu %}
+						</div>
+					</div>
+				{% endblock block_header %}
+				{% block tabs_content %}
+					<div class="tabs_content">
+						<div class="internet_tarify block_tarify tabs_block item active" data-tab="1">
+							<div class="item_body">
+								<p class="lk_title">интернет</p>
+								<div class="item_body_content">
+									<div class="show_selected_tarif">
+										<div class="show_selected_tarif_body">
+											<div>Тариф</div>
+											<div class="tarif_tabs">
+												{% for item in tariffs_multi_storey_building %}
+													<div class="tarif_tab tab_name" id="{{ item.id }}">
+														<div class="tarif_name lk_title" data-speed="{{ item.speed }}">{{ item.name }}</div>
+														<p class="lk_subtitle">{{ item.cost }} ₽/мес</p>
+													</div>
+												{% endfor %}
+											</div>
+										</div>
+									</div>
+									<div class="tarifs_bottom">
+										<div class="selection_tarifs">
+											<p class="max-speed">Макс. скорость (Мбит/с)</p>
+											<div class="selection_tarifs_slider">
+												<div class="slider_line"></div>
+												<div class="tarifs">
+													{% for item in tariffs_multi_storey_building %}
+														<label class="radio">
+															<input class="radio-tab" type="radio" name="max-speed"
+															       value="{{ item.id }}" checked="checked">
+															<p>{{ item.speed }}</p>
+														</label>
+													{% endfor %}
+												</div>
+											</div>
+										</div>
+										<div class="tarifs_btn">
+											<button onclick="ConnectTariff(this)" class="btn js-open-modal" data-modal="4">Подключить
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div class="internet_tarify block_tarify tabs_block item" data-tab="2">
+							<div class="item_body">
+								<p class="lk_title">интернет</p>
+								<div class="item_body_content">
+									<div class="show_selected_tarif">
+										<div class="show_selected_tarif_body">
+											<div>Тариф</div>
+											<div class="tarif_tabs">
+												{% for item in tariffs_private_sector %}
+													<div class="tarif_tab1 tab_name" id="{{ item.id }}">
+														<div class="tarif_name lk_title" data-speed="{{ item.speed }}">
+															{{ item.name }}
+														</div>
+														<p class="lk_subtitle">{{ item.cost }} ₽/мес</p>
+													</div>
+												{% endfor %}
+											</div>
+										</div>
+									</div>
+									<div class="tarifs_bottom">
+										<div class="selection_tarifs">
+											<p class="max-speed">Макс. скорость (Мбит/с)</p>
+											<div class="selection_tarifs_slider">
+												<div class="slider_line"></div>
+												<div class="tarifs">
+													{% for item in tariffs_private_sector %}
+														<label class="radio">
+															<input class="radio-tab1" type="radio" name="max-speed-1"
+															       value="{{ item.id }}" checked="checked">
+															<p>{{ item.speed }}</p>
+														</label>
+													{% endfor %}
+												</div>
+											</div>
+										</div>
+										<div class="tarifs_btn">
+											<button onclick="ConnectTariff(this)" class="btn js-open-modal" data-modal="4">Подключить
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endblock tabs_content %}
+			</div>
+		</div>
+	</div>
+{% endblock page %}
+
+
+{% block script %}
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="/static/js/connect_internet.js"></script>
+	<script src="/static/js/front/feedback.js"></script>
+	<script src='/static/js/front/slider.js'></script>
+	<script>
+      var curIndex = 0;
+      var imgDuration = 10000;
+      var imgArray = $('.slider').children().toArray();
+      slideShow(imgArray, imgDuration, curIndex);
+	</script>
+
+	<script>
+      $('.tabs-item').click(function () {
+          var id = $(this).attr('data-tab'),
+              content = $('.tabs_block[data-tab="' + id + '"]');
+
+          $('.tabs-item.active').removeClass('active'); // 1
+          $(this).addClass('active'); // 2
+
+          $('.tabs_block.active').removeClass('active'); // 3
+          content.addClass('active'); // 4
+      });
+	</script>
+
+	<script>
+
+      $(function () {
+          $("#" + $(".radio-tab:checked").val()).show();
+          $(".radio-tab").change(function () {
+              $(".tarif_tab").hide();
+              $("#" + $(this).val()).show();
+          });
+      });
+
+      $(function () {
+          $("#" + $(".radio-tab1:checked").val()).show();
+          $(".radio-tab1").change(function () {
+              $(".tarif_tab1").hide();
+              $("#" + $(this).val()).show();
+          });
+      });
+	</script>
+
+{% endblock script %}

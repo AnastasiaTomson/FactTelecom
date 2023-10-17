@@ -1,0 +1,91 @@
+.slider-image {
+  position: relative;
+  overflow: hidden;
+  /*max-height: 300px;*/
+  min-height: 150px;
+  border-radius: 14px;
+}
+
+.tabs_menu {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+.tabs-item, .tab-item {
+background: #fff;
+padding: 10px 20px;
+white-space: nowrap;
+margin: 0 10px 10px 10px;
+line-height: 187%;
+font-weight: 500;
+cursor: pointer;
+box-shadow: 0px -1px 20px rgba(0, 0, 0, 0.05);
+}
+
+.tabs-item:hover,
+.tabs_menu .active {
+background: #0b9fef;
+color: white;
+}
+
+.tabs_content {
+width: 100%;
+}
+
+.tabs_content .active {
+display: block;
+flex-wrap: wrap;
+}
+
+.tabs_block {
+display: none;
+}
+
+.tarif_name {
+color: #0b9fef;
+}
+
+.tarif_name small{
+color: #4B5660;
+font-size: 16px;
+line-height: 0;
+}
+
+.tarif_tab, .tarif_tab1 {
+display: none;
+}
+
+.tarify .forms {
+z-index: 3;
+flex-direction: row;
+gap: 15px;
+flex: unset;
+}
+
+@media(max-width:1300px) {
+.tabs-item {
+margin: 10px;
+}
+}
+
+@media (max-width: 780px) {
+.tarify .forms {
+flex-direction: column;
+}
+}
+
+@media(max-width:800px) {
+.internet_tv .selection_tarifs {
+margin-bottom: 30px;
+}
+}
+
+@media(max-width:470px) {
+.open_modal .user_info {
+flex-wrap: wrap;
+}
+.open_modal .user_info>*:not(:last-child){
+margin: 0 0 10px 0;
+}
+}

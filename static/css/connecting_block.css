@@ -1,0 +1,21 @@
+.page_connecting {
+background: #f5f5f5;
+}
+
+.connecting_block_container {
+display: flex;
+justify-content: space-between;
+max-width: 100%;
+}
+
+.connecting_block_content {
+display: flex;
+flex-direction: column;
+/*justify-content: space-between;*/
+}
+
+@media(max-width:1280px) {
+.connecting_block_container {
+flex-direction: column;
+}
+}

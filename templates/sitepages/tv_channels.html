@@ -1,0 +1,35 @@
+{% extends 'sitepages/tv.html' %}
+{% load poll_extras %}
+
+{% block head %}
+    <link rel="stylesheet" href="/static/css/tv.css">
+    <link rel="stylesheet" href="/static/css/shop.css">
+    <link rel="stylesheet" href="/static/css/tv_channels.css">
+{% endblock head %}
+
+{% block page %}
+    <div class="tv_channels_page">
+        <div class="page block side tv">
+            <div class="tv_channels_block_container">
+                <p class="title">{{ packet.tv_tariff }}</p>
+                <p class="subtitle_1">{{ packet.channel_count }} {{ packet.channel_count|channel_units }}</p>
+                <div class="block_body">
+                    <div class="page_block">
+                        <div class="tv_channels_list">
+                            {% for channel in channels %}
+                                <div class="channel-block">
+                                    <div class="channel-block-inner">
+                                        <img class="channel-logo"
+                                             src="/media/{{ channel.image }}"
+                                             alt="{{ channel.name }}">
+                                        <span class="channel-name">{{ channel.name }}</span>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock page %}

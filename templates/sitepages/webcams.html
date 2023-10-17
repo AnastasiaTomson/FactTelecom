@@ -1,0 +1,56 @@
+{% extends 'sitepages/cctv.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="/static/css/webcams.css">
+{% endblock head %}
+
+{% block page %}
+    <div class="page block center">
+        <div class="page_container">
+            <div class="page_block">
+                <div class="center_page_header">
+                    <div class="webcams_title title">Веб-камеры в Керчи</div>
+                </div>
+                <div class="webcams_block">
+{#                    <a class="scroll_btn left"><img src="/media/icon/cctv/arrow.svg" alt=""></a>#}
+                        <div class="web_cam web-cam1"
+                             style="background-image: url(&quot;https://ipcam.apex-crimea.com/image51.jpg?login=sq&amp;password=1&quot;);
+                     background-color: rgba(0, 0, 0, 0); background-position: 0% 0%, 0% 0%;  background-attachment: scroll, scroll; background-origin: padding-box, padding-box; background-clip: border-box, border-box;"
+                             onclick="veb_show('https://ipcam.apex-crimea.com/video51.mjpg?login=sq&amp;password=1', 'Спортивная площадка')">
+                            <div class="webcam_title">Спортивная площадка</div>
+                        </div>
+                        <div class="web_cam web-cam2"
+                             style="background-image: url('https://ipcam.apex-crimea.com/image64.jpg?resolution=&amp;fps=')">
+                            <div class="webcam_title">Гагаринское кольцо</div>
+                        </div>
+                        <div class="web_cam web-cam3"
+                             style="background-image: url('https://ipcam.apex-crimea.com/image12.jpg?login=fire&amp;password=1')"
+                             onclick="veb_show('https://ipcam.apex-crimea.com/video12.mjpg?login=fire&amp;password=1', 'Сквер Славы')">
+                            <div class="webcam_title">Сквер Славы</div>
+                        </div>
+                        <div class="web_cam web-cam4"
+                             style="background-image: url(&quot;https://ipcam.apex-crimea.com/image56.jpg?login=sq&amp;password=1&quot;)"
+                             onclick="veb_show('https://ipcam.apex-crimea.com/video56.mjpg?login=sq&amp;password=1', 'Прогулочная зона набережной')">
+                            <div class="webcam_title">Прогулочная зона набережной</div>
+                        </div>
+                        <div class="web_cam web-cam5"
+                             style="background-image: url(&quot;https://ipcam.apex-crimea.com/image63.jpg?resolution=&amp;fps=&quot;)"
+                             onclick="veb_show('https://ipcam.apex-crimea.com/video63.mjpg?resolution=&amp;fps=', 'Гагаринское кольцо перекресток')">
+                            <div class="webcam_title">Гагаринское кольцо перекресток</div>
+                        </div>
+                        <div class="web_cam web-cam6"
+                             style="background-image: url(&quot;https://ipcam.apex-crimea.com/komarova.jpg?resolution=&quot;)"
+                             onclick="veb_show('https://ipcam.apex-crimea.com/komarova.mjpg?resolution=&amp;fps=', 'Кольцо на ул.Комарова')">
+                            <div class="webcam_title">Кольцо на ул.Комарова</div>
+                        </div>
+                        <div class="web_cam web-cam7"
+                             style="background-image: url(&quot;https://ipcam.apex-crimea.com/pirogova.jpg?resolution=&quot;)"
+                             onclick="veb_show('https://ipcam.apex-crimea.com/pirogova.mjpg?resolution=&amp;fps=', 'Перекресток на ул. Пирогова')">
+                            <div class="webcam_title">Перекресток на ул. Пирогова</div>
+                        </div>
+{#                    <a class="scroll_btn right"><img src="/media/icon/cctv/arrow.svg" alt=""></a>#}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock page %}

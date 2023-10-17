@@ -1,0 +1,15 @@
+
+
+.bestseller_container >*:not(:last-child) {
+margin-bottom: 30px;
+}
+
+.bestseller_image {
+height: 400px;
+width: 100%;
+object-fit: cover;
+}
+
+.bs_btn {
+max-width: 500px;
+}

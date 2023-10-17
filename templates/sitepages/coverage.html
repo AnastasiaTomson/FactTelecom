@@ -1,0 +1,58 @@
+{% extends 'sitepages/index.html' %}
+
+{% block head %}
+	<link rel="stylesheet" href="/static/css/coverage.css">
+	<link rel="stylesheet" href="/static/css/connecting_block.css">
+	<link rel="stylesheet" href="/static/css/connectivity_form.css">
+	<link rel="stylesheet" href="/static/css/connecting_form.css">
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=680214aa-d198-463f-9016-83581d1f8ab3"
+	        type="text/javascript"></script>
+	<script type="text/javascript" src="https://yandex.st/jquery/2.2.3/jquery.js"></script>
+{% endblock head %}
+
+{% block page %}
+	<div class="page_connecting block page">
+		<div class="connecting_container">
+			<form class="connectivity_form">
+				<div class="connectivity_form_content connecting_block_content">
+					<div class="title_1">Проверьте техническую возможность подключения к АПЕКС</div>
+					<div class="connectivity_body">
+						<div class="connectivity_inputs">
+							<div class="connectivity_input">
+								<label>Город
+									<input type="text" name="city" class="city">
+								</label>
+							</div>
+							<div class="connectivity_input">
+								<label>Улица
+									<input type="text" name="street" class="street">
+								</label>
+							</div>
+							<div class="connectivity_input">
+								<label>№ дома
+									<input type="text" name="house" class="house">
+								</label>
+							</div>
+						</div>
+						<a id="check" class="connectivity_btn btn">Проверить</a>
+					</div>
+				</div>
+			</form>
+			<div class="coverage">
+				<div class="coverage_title title">Карта покрытия</div>
+
+				<div class="cover-map">
+					<iframe
+							src="https://yandex.ru/map-widget/v1/?um=constructor%3Aa91ee5643080d8d8ce95635a2590876255429ae8a9f994fde15573d5fa7cd3c1&z&amp;source=constructor"
+							width="100%" height="430px" frameborder="0"></iframe>
+				</div>
+
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block script %}
+	<script src="/static/js/cover.js"></script>
+	<script src="/static/js/front/feedback.js"></script>
+{% endblock %}

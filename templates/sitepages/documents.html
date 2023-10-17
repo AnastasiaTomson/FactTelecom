@@ -1,0 +1,37 @@
+{% extends 'sitepages/index.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="/static/css/news.css">
+    <link rel="stylesheet" href="/static/css/documents.css">
+{% endblock head %}
+
+{% block page %}
+    <div class="side page_documents block">
+        <div class="documents_container">
+            <div class="documents_body block_body">
+                <div class="block_header">
+                    <p class="title">документы</p>
+                </div>
+                <div class="block_body_content">
+                    <div class="documents_columns">
+                        {% for item in docs %}
+                            <div class="documents_column column">
+                                <div class="documents_item item_documents item">
+                                    <div class="documents_item_body item_body">
+                                        <div class="doc_icon"><img height="60" src="{{ item.icon }}"
+                                                                   alt="Иконка">
+                                        </div>
+                                        <div class="documents_item_title subtitle_2">{{ item.description }}</div>
+                                        <div class="documents_button btn"
+                                             onclick="window.location.href = '{{ item.file.url }}'">Скачать
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock page %}

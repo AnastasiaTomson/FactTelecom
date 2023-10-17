@@ -1,0 +1,22 @@
+.table {
+width: 690px;
+}
+
+.table_body {
+flex-direction: row;
+}
+
+.table_body > *:not(:last-child) {
+margin: 0 50px 0 0;
+}
+
+.table_form {
+display: flex;
+flex-direction: column;
+width: 100%;
+}
+
+
+
+
+

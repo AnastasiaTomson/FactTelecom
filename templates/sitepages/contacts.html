@@ -1,0 +1,52 @@
+{% extends 'sitepages/index.html' %}
+
+{% block head %}
+	<link rel="stylesheet" href="/static/css/contacts.css">
+	<link rel="stylesheet" href="/static/css/coverage.css">
+	<link rel="stylesheet" href="/static/css/connecting_block.css">
+	<link rel="stylesheet" href="/static/css/connectivity_form.css">
+	<link rel="stylesheet" href="/static/css/connecting_form.css">
+{% endblock head %}
+
+{% block page %}
+	<div class="page block">
+		<div class="contacts_container">
+			<div class="contacts_block">
+				{% for contact in contacts %}
+					<div class="contact_item">
+						<div class="title_1">{{ contact.department }}</div>
+						<div class="contact_body">
+							<div class="contact_body_content">
+								<div class="contact_title">ТЕЛЕФОН:</div>
+								{% for phone in contact.phones.all %}
+									<p>{{ phone.phone }}</p>
+								{% endfor %}
+							</div>
+							<div class="contact_body_content">
+								{% if contact.schedule %}
+									<div class="contact_title">График работы:</div>
+									<p>{{ contact.schedule }}</p>
+								{% endif %}
+								{% if contact.email %}
+									<div class="contact_title">Электронная почта:</div>
+									<p>{{ contact.email }}</p>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+			<div class="contacts_address">
+				<div class="title_1">Адрес офиса</div>
+				<p>298300, Российская Федерация, Республика Крым, г. Керчь, ул. Карла Маркса 10</p>
+				<p>Ежедневно с 9-00 до 18-00</p>
+				<div class="contacts_map">
+					<iframe
+							src="https://yandex.ru/map-widget/v1/?um=constructor%3ANirUD-PTByV-yv8DMubRm1gJVZoPK8tF&amp;source=constructor"
+							height="500" frameborder="1"></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+

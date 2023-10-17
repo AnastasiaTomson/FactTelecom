@@ -1,0 +1,150 @@
+
+
+.user .item_body > *:not(:last-child) {
+margin-bottom: 35px;
+}
+
+.firm .item_body > *:not(:last-child) {
+margin-bottom: 25px;
+}
+
+.user_info_item {
+display: flex;
+flex-direction: column;
+}
+
+.info_item > *:not(:last-child) {
+margin: 0 0 10px 0;
+}
+
+.info_top {
+display: flex;
+align-items: center;
+}
+
+
+.info_top img {
+height: 25px;
+width: 25px;
+}
+
+.info_top > *:not(:last-child) {
+margin: 0 10px 0 0;
+}
+
+.hide_block {
+display: none!important;
+}
+
+
+.info_stroke {
+display: flex;
+gap: 10px;
+align-items: center;
+position: relative;
+}
+
+.info_stroke input{
+width: 165px;
+padding: 0;
+border: 1px solid transparent;
+background: transparent;
+height: 30px;
+}
+
+.info_stroke .save_tel_btn{
+display: none;
+}
+
+.info_stroke img {
+width: 16px;
+}
+
+.tel_info:not(:last-child) {
+margin-bottom: 7px;
+}
+
+.tel_info  > *:not(:last-child) {
+margin: 0 20px 0 0;
+}
+
+.tel_info p {
+width: 140px;
+}
+
+.info_stroke a {
+height: 16px;
+}
+
+.sms_tel {
+display: flex;
+align-items: center;
+}
+
+.add_tel,
+.save_tel {
+color: #0E57E5;
+font-weight: 700;
+}
+
+.add_tel:hover {
+color: #0b9fef;
+}
+
+.add_tel_user_info {
+display: none;
+align-items: center;
+flex-wrap: wrap;
+}
+
+.user_info_item .show {
+display: flex;
+}
+
+.add_tel_input {
+width: 180px;
+margin-right: 15px;
+}
+
+.info_stroke .password-control {
+position: absolute;
+top: 17px;
+right: 13px;
+display: inline-block;
+width: 20px;
+height: 20px;
+background-image: url(/media/icon/eye-off.svg);
+background-repeat: no-repeat;
+background-position: center;
+cursor: pointer;
+}
+
+.password_info {
+width: 250px;
+}
+
+.password_info input {
+border: none;
+background: none;
+}
+
+.password_info input:focus {
+border: inherit;
+background: none;
+}
+
+.firm .lk_title {
+font-size: 17px;
+}
+
+@media(max-width:1300px) {
+.user .item_body > *:not(:last-child) {
+margin-bottom: calc(10px + (35 - 10) * ((100vw - 320px) / (1260 - 320)));;
+}
+.firm .item_body > *:not(:last-child) {
+margin-bottom: calc(10px + (25 - 10) * ((100vw - 320px) / (1260 - 320)));;
+}
+.firm .lk_title {
+font-size: calc(16px + (25 - 16) * ((100vw - 320px) / (1260 - 320)));
+}
+}

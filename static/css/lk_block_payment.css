@@ -1,0 +1,108 @@
+/*---------------------------------БЛОК ИСТОРИЯ ПЛАТЕЖЕЙ------------------------------------------*/
+
+
+.pay_table {
+display: flex;
+flex-direction: column;
+margin: 20px 0 0 0;
+}
+
+.main_row {
+white-space: nowrap;
+}
+
+.pay_row {
+display: flex;
+justify-content: space-between;
+border-bottom: 0.5px solid #C4C4C4;
+}
+
+.pay_row .column {
+height: 65px;
+padding: 0;
+display: flex;
+align-items: center;
+}
+
+.date_column {
+display: flex;
+width: 165px;
+}
+
+.summa_column {
+justify-content: center;
+}
+
+.summa {
+font-weight: 600;
+margin: 0 0 0 50px;
+width: 100px;
+text-align: right;
+}
+
+.type {
+text-align: center;
+min-width: 150px;
+}
+
+.pay_time {
+margin: 0 0 0 15px;
+color: #828282;
+}
+
+.pay-btn {
+padding: 0 50px;
+margin: 20px 0 0 0;
+}
+
+details {
+width: 100%;
+}
+
+summary img {
+margin-left: 10px;
+width: 16px;
+}
+
+details summary::-webkit-details-marker {
+display: none;
+}
+
+details > summary {
+list-style: none;
+display: flex;
+justify-content: space-between;
+align-items: center;
+cursor: pointer;
+}
+
+details[open] > summary img {
+transform: rotate(180deg);
+}
+
+
+@media(max-width:700px) {
+.pay-btn {
+width: 100%;
+}
+.summa_column {
+flex-direction: column;
+align-items: flex-end;
+}
+.type {
+text-align: right;
+}
+}
+
+
+@media(max-width:480px) {
+.pay_row .date_column {
+flex-direction: column;
+align-items: flex-start;
+justify-content: center;
+}
+
+.pay_time, .pay_table {
+margin: 0;
+}
+}

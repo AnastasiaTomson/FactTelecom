@@ -1,0 +1,209 @@
+{% extends 'sitepages/internet.html' %}
+{% load poll_extras %}
+
+{% block head %}
+    <link rel="stylesheet" href="/static/css/tv.css">
+    <link rel="stylesheet" href="/static/css/internet.css">
+    <link rel="stylesheet" href="/static/css/lk.css">
+    <link rel="stylesheet" href="/static/css/shop.css">
+    <link rel="stylesheet" href="/static/css/lk_tarify_tv.css">
+    <link rel="stylesheet" href="/static/css/main_block.css?version=1">
+{% endblock head %}
+
+{% block page %}
+    <div class="tv_page">
+        <div class="page_main-block main-block">
+            <div class="main-block_container">
+                {% block slider %}
+                    <div class="slider" style="max-width: 530px; margin-left: auto;">
+                        <div class="slider__wrapper">
+                            <div class="slider__items">
+                                {% for foo in slider %}
+                                    <div class="slider__item">
+                                        <img class="img-fluid" src="{{ foo.image.url }}" alt="{{ foo.image.url }}"
+                                             loading="lazy">
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endblock slider %}
+                <div class="forms">
+                    <form id="support-form" class="form_connect item form">
+                        <div class="item_body main-block_item_body form_connect_content">
+                            <div class="form_connect_header">
+                                <div class="form_connect_title title_2">СТАТЬ АБОНЕНТОМ</div>
+                                <div class="form_connect_subtitle subtitle_3"> Вам перезвонит оператор
+                                </div>
+                            </div>
+                            <div class="input_block">
+                                <input type="tel" id="phone" name="support-phone" class="input_tel phone"
+                                       placeholder="Номер телефона"
+                                       required>
+                            </div>
+                            <div href="" class="btn" onclick="SendSupportMessage(this)">Оставить заявку</div>
+                        </div>
+                    </form>
+                    {% block balance_form %}
+                        {{ block.super }}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+
+        <div class="page block side tv">
+            <div class="tv_block_container">
+                <div class="block_body">
+                    {% block block_header %}
+                        <div class="block_header">
+                            <p class="title">ТВ-пакеты</p>
+                            <nav class="tabs-menu">
+                                <a class="tab-item select active" onclick="selected_category(this, 'all')">Все
+                                    ТВ-пакеты</a>
+                                <a class="tab-item select" onclick="selected_category(this, 'main_packs')">Основные</a>
+                                <a class="tab-item select"
+                                   onclick="selected_category(this, 'add_packs')">Дополнительные</a>
+                            </nav>
+                        </div>
+                    {% endblock block_header %}
+                    {% block content %}
+                        <div class="block_body_content">
+                            <p class="lk_second_title lk_title main_packs all">Основные тв-пакеты</p>
+                            <div id="main_tv_packs" class="main_packs tv_packs all">
+                                <div class="tv_packs_row">
+                                    {% for tv_main_packet in tv_main_packets %}
+                                        <div class="tv_pack column">
+                                            <div class="add_pack item">
+                                                <div class="item_body">
+                                                    <div class="pack_name lk_title">{{ tv_main_packet.tv_tariff }}</div>
+                                                    <div class="tv_pack_body_info">
+                                                        <img class="tv_pack_img" src="/media/icon/main_tv.png"
+                                                             alt="{{ tv_main_packet.tv_tariff }}">
+                                                        <div class="tv_pack_info">
+                                                            <a href="{% url 'tv_channels' tv_main_packet.id_smotreshka %}"
+                                                               class="tv_list">{{ tv_main_packet.channel_count }} {{ tv_main_packet.channel_count|channel_units }}</a>
+                                                            <p class="pack_price">{{ tv_main_packet.cost }} ₽/мес</p>
+                                                        </div>
+                                                    </div>
+                                                    <button onclick="ConnectTariff(this, {{ tv_main_packet.id }})"
+                                                            class="btn js-open-modal"
+                                                            data-modal="5">Подключить
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <p class="lk_second_title lk_title add_packs all">Дополнительные тв-пакеты</p>
+                            <div id="add_tv_packs" class="second tarify_tv add_packs tv_packs all">
+                                <div class="tv_packs_row">
+                                    {% for tv_additional_packet in tv_additional_packets %}
+                                        <div class="tv_pack column">
+                                            <div class="add_pack item">
+                                                <div class="item_body">
+                                                    <div class="pack_name lk_title">{{ tv_additional_packet.tv_tariff }}</div>
+                                                    <div class="tv_pack_body_info">
+                                                        <img class="tv_pack_img"
+                                                             src="/media/icon/add_tv.png"
+                                                             alt="{{ tv_additional_packet.tv_tariff }}">
+                                                        <div class="tv_pack_info">
+                                                            <a href="{% url 'tv_channels' tv_additional_packet.id_smotreshka %}"
+                                                               class="tv_list">{{ tv_additional_packet.channel_count }} {{ tv_additional_packet.channel_count|channel_units }}</a>
+                                                            <p class="pack_price">{{ tv_additional_packet.cost }}
+                                                                ₽/мес</p>
+                                                        </div>
+                                                    </div>
+                                                    <button onclick="ConnectTariff(this, {{ tv_additional_packet.id }})"
+                                                            class="btn js-open-modal"
+                                                            data-modal="5">Подключить
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endblock content %}
+                </div>
+            </div>
+        </div>
+        <div class="page block center tv_app">
+            <div class="block_container">
+                <div class="block_header">
+                    <p class="title">Скачать приложение</p>
+                </div>
+                <div class="block_body">
+                    <div class="app_serv column">
+                        <a href="https://apps.apple.com/ru/app/smotreska/id911254937">
+                            <img src="/media/tv_app/app_store.svg" alt="app_store">
+                        </a>
+                    </div>
+                    <div class="app_serv column">
+                        <a href="https://play.google.com/store/apps/details?id=tv.lfstrm.smotreshka&hl=ru&gl=RU">
+                            <img src="/media/tv_app/google.svg" alt="google">
+                        </a>
+                    </div>
+                    <div class="app_serv column">
+                        <a href="https://smotreshka.tv/my_tv">
+                            <img src="/media/tv_app/smart.svg" alt="smart_tv">
+                        </a>
+                    </div>
+                    <div class="app_serv column">
+                        <a href="https://appgallery.huawei.com/#/app/C101709507"
+                           class="app_serv">
+                            <img src="/media/tv_app/app_gallery.svg" alt="app_gallery">
+                        </a>
+                    </div>
+                    <div class="app_serv column">
+                        <a href="https://apps.rustore.ru/app/tv.lfstrm.smotreshka"
+                           class="app_serv">
+                            <img src="/media/tv_app/ru_store.svg" alt="ru_store">
+                        </a>
+                    </div>
+                    <div class="app_serv column">
+                        <a href="https://global.app.mi.com/details?id=tv.lfstrm.smotreshka&lo=RU&la=ru"
+                           class="app_serv">
+                            <img src="/media/tv_app/get_apps.svg" alt="get_apps">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock page %}
+
+{% block script %}
+    <script src="/static/js/connect_tv.js"></script>
+    <script src="/static/js/front/feedback.js"></script>
+    <script src='/static/js/front/slider.js'></script>
+    <script>
+        var curIndex = 0;
+        var imgDuration = 10000;
+        var imgArray = $('.slider').children().toArray();
+        slideShow(imgArray, imgDuration, curIndex);
+    </script>
+    <script>
+        function selected_category(object, selector) {
+            let $filter = $('.tabs-menu')
+            $('.block_body_content').children().hide()
+            $('.' + selector).show()
+            $filter.find('*').removeClass('active-select')
+        }
+
+        $(document).ready(function () {
+            $('.tabs-menu .select:first-child').click()
+        })
+    </script>
+
+    <script>
+        $('.tab-item').click(function () {
+            $('.tab-item.active').removeClass('active');
+            $(this).addClass('active');
+        });
+    </script>
+
+
+{% endblock script %}

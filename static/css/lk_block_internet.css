@@ -1,0 +1,161 @@
+/*---------------------------------БЛОК ИНТЕРНЕТ------------------------------------------*/
+
+.main_block_status {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px 35px;
+box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+.main_block_status img {
+height: 45px;
+width: 45px;
+}
+
+#activated {
+background-color: #0b9fef;
+}
+
+#deactivated {
+background-color: #EF0B0B;
+}
+
+#on_pause {
+background-color: #FFA800;
+}
+
+#repair {
+background-color: #0E57E5;
+}
+
+#deactivated, #on_pause, #repair {
+display: flex;
+}
+
+.main_block_status {
+    height: 75px;
+}
+
+.status {
+color: white;
+font-weight: 700;
+font-size: 24px;
+letter-spacing: 0.015em;
+}
+
+.status-btn {
+    display: flex;
+    align-items: center;
+}
+.status-btn:hover {
+    cursor: pointer;
+}
+.pause-btn:hover .icon-pause path {
+    fill: orange;
+    stroke: orange;
+}
+.on-btn:hover .icon-on path {
+    fill: #0b9fef;
+    stroke: #0b9fef;
+}
+.pause-btn:hover .status-btn-label {
+    color: orange;
+}
+.on-btn:hover .status-btn-label {
+    color: #0b9fef;
+}
+.status-btn-label {
+    margin-right: 15px;
+}
+
+.main_section {
+display: flex;
+}
+
+.main_section > *:not(:last-child) {
+margin: 0 15px 0 0;
+}
+
+.balance_block {
+flex: 50%;
+}
+
+.tarif_block {
+flex: 50%;
+}
+
+.main_block_info {
+width: 100%;
+}
+
+.balance_value {
+font-weight: 700;
+font-size: 24px;
+line-height: 188%;
+letter-spacing: 0.015em;
+color: #0b9fef;
+}
+
+.tarif_name {
+color: #0b9fef;
+}
+
+.tv-scnd_btn {
+line-height: 120%;
+}
+
+.main_block_change,
+.main_block_payment {
+border-radius: 0;
+}
+
+
+@media(max-width:1300px) {
+.main_block_status {
+padding: 15px calc(20px + (35 - 20) * ((100vw - 320px) / (1260 - 320)));
+}
+.status {
+font-size: calc(18px + (24 - 18) * ((100vw - 320px) / (1260 - 320)));
+}
+}
+
+
+@media(max-width:950px) {
+.tarif_name, .balance_value {
+font-size: 20px;
+}
+}
+
+
+@media(max-width:865px) {
+.main_section {
+flex-direction: column;
+}
+.main_section > *:not(:last-child) {
+margin: 0 0 15px 0;
+}
+.main_block .item_body {
+flex-direction: row;
+align-items: center;
+}
+.main_block .item_body > *:not(:last-child) {
+margin: 0 15px 0  0;
+}
+}
+
+
+@media(max-width:700px) {
+.main_block .item_body {
+flex-direction: column;
+}
+.main_block .item_body > *:not(:last-child) {
+margin: 0 0 15px 0;
+}
+.main_block > *:not(:last-child) {
+margin: 0 0 15px 0;
+}
+.main_block .btn {
+width: 100%;
+}
+}

@@ -1,0 +1,49 @@
+{% extends 'sitepages/index.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="/static/css/product.css">
+    <link rel="stylesheet" href="/static/css/bestseller.css">
+    <link rel="stylesheet" href="/static/css/footer.css">
+    <link rel="stylesheet" href="/static/css/shop.css">
+{% endblock head %}
+
+{% block page %}
+    <div class="page">
+        <div class="bestseller_block block">
+            <div class="bestseller_container">
+                <div class="product_title">{{ bestseller.title }}</div>
+                <img class="bestseller_image" src="/static/img/yellow.jpg">
+                <div class="bestseller_description">
+                    <div>{{ bestseller.line1|safe }}</div>
+                    <div>{{ bestseller.line2|safe }}</div>
+                    <div>{{ bestseller.line3|safe }}</div>
+                    <div>{{ bestseller.line4|safe }}</div>
+                </div>
+                <div class="btn bs_btn" onclick="window.location.href = ''">
+                    {{ bestseller.button_text }}
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock page %}
+{% block script %}
+    <script src='/static/js/front/slider.js'></script>
+    <script>
+        var curIndex = 0;
+        var imgDuration = 10000;
+        var imgArray = $('.slider_image').children().toArray();
+        slideShow(imgArray, imgDuration, curIndex);
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('.tab-item:first').click();
+        })
+
+        function ClickCategoryShop(category_id) {
+            $('.tabs-block').hide();
+            $(category_id).css('display', 'flex');
+        }
+    </script>
+{% endblock %}
+

@@ -1,0 +1,51 @@
+{% extends 'sitepages/index.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="/static/css/news.css">
+    <link rel="stylesheet" href="/static/css/news_block.css">
+{% endblock head %}
+
+
+{% block page %}
+    <div class="page side block">
+        <div class="news_container">
+            <div class="block_body">
+                <div class="block_header">
+                    <div class="news_title title side_header_title">новости</div>
+                    <div class="news_subtitle subtitle_1">Архив новостей</div>
+                    <div class="news_archive_years">
+                        <a href="{% url 'news_archive' %}" class="news_year">Все новости</a>
+                        {% for year in years %}
+                            <a href="{% url 'news_archive' year %}" class="news_year">{{ year }} год</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="news_columns block_body_content">
+                    <div class="news_columns">
+                        {% for item in news %}
+                            <div class="news_column column">
+                                <div class="news_item item">
+                                    <div class="news_item_body item_body">
+                                        <div class="news_item_top">
+                                            <div class="news_item_date">{{ item.date_publication|date:"d E Y" }}</div>
+                                            <div class="news_item_title title_2">{{ item.title|safe }}</div>
+                                        </div>
+                                        <div class="news_item_bottom">
+                                            {% if item.image %}
+                                                <img src="{{ item.image.url }}" alt="" width="100px">
+                                            {% endif %}
+                                            <div class="news_item_text">{{ item.article | safe }}
+                                            </div>
+                                        </div>
+                                        <p class="news_item_btn"><a href="{% url 'news_story' item.id %}">Подробнее</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock page %}

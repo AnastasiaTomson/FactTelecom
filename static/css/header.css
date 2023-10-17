@@ -1,0 +1,286 @@
+/*--------HEADER---------*/
+
+header ul, header li {
+list-style: none;
+}
+
+.header{
+width: 100%;
+left: 0;
+top: 0;
+}
+
+.header_fixed {
+position: fixed;
+left: 0;
+top: 0;
+}
+
+.header_top {
+background: #0b9fef;
+padding: 10px 0;
+}
+
+.header_top_container {
+min-height: 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+font-weight: 600;
+font-size: 14px;
+line-height: 156%;
+letter-spacing: 0.15px;
+color: #FFFFFF;
+}
+
+.header_top_container ul {
+display: flex;
+}
+
+.header_top_container li,
+.header_bottom_container li {
+margin: 0;
+}
+
+
+.lk_exit {
+position: absolute;
+z-index: 15;
+color: #4B5660;
+display: none;
+flex-direction: column;
+align-items: center;
+height: fit-content;
+padding: 15px 35px;
+background-color: #fff;
+box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.1);
+min-width: 128px;
+}
+
+.lk_exit >:not(:last-child) {
+margin-bottom: 8px;
+}
+
+.lk_exit >:hover {
+color: #0E57E6;
+}
+
+.menu_top_item:hover .lk_exit {
+display: flex;
+}
+
+.menu_top_item:not(:last-child) {
+margin-right: 45px;
+}
+
+.menu_link:hover {
+color:  #0E57E6;
+transition-duration: 0.3s
+}
+
+.header_bottom_container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+min-height: 105px;
+}
+
+.header_bottom_container ul {
+display: flex;
+justify-content: space-around;
+white-space: nowrap;
+}
+
+.menu_bottom_list {
+flex: 0 1 50%;
+}
+
+.menu_bottom_right {
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+white-space: nowrap;
+font-weight: 600;
+line-height: 150%;
+}
+
+.menu_bottom_tel_link {
+font-size: 20px;
+color: #0b9fef;
+letter-spacing: 0.015em;
+}
+
+.menu_bottom_tel_link:hover {
+color: #0E57E6;
+}
+
+.menu_bottom_right p {
+font-size: 14px;
+}
+
+.menu_bottom_logo img {
+max-width: 200px;
+}
+
+/*--------------МЕНЮ БУРГЕР--------------*/
+
+.burger-menu {
+display: none;
+cursor: pointer;
+}
+
+.menu-btn {
+	width: 30px;
+	height: 30px;
+	position: relative;
+	z-index: 15;
+	overflow: hidden;
+}
+
+.menu-btn span {
+	width: 30px;
+	height: 2px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #fff;
+	transition: all 0.3s;
+}
+
+.menu-btn span:nth-of-type(2) {
+	top: calc(50% - 8px);
+}
+.menu-btn span:nth-of-type(3) {
+	top: calc(50% + 8px);
+}
+
+/* Меняем гамбургер иконку, когда меню открыто */
+.menu-btn.active span:nth-of-type(1) {
+  display: none;
+}
+.menu-btn.active span:nth-of-type(2) {
+  top: 50%;
+  transform: translate(-50%, 0%) rotate(45deg);
+  background-color: #4B5660;
+}
+.menu-btn.active span:nth-of-type(3) {
+  top: 50%;
+  transform: translate(-50%, 0%) rotate(-45deg);
+  background-color: #4B5660;
+}
+
+.menubox {
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 15px;
+	transform: translateX(-100%);
+	transition: transform 0.5s;
+  list-style: none;
+  background-color: #F5F5F5;
+  z-index: 14;
+}
+
+.burger-menu .show {
+	transform: translateX(0);
+}
+
+.menubox ul {
+display: flex;
+flex-direction: column;
+}
+
+.menubox ul:not(:last-child) {
+margin-right: 30px;
+}
+
+.menu-item {
+display: block;
+color: #4B5660;
+font-size: 18px;
+font-weight: 600;
+text-decoration: none;
+transition-duration: .25s;
+height: 50px;
+margin-bottom: 10px;
+}
+
+.funding {
+display: none;
+}
+
+.acc {
+color: #0b9fef;
+font-size: 18px;
+font-weight: 700;
+text-decoration: none;
+transition-duration: .25s;
+}
+
+.menubox a:hover {
+color: #0E57E5;
+}
+
+
+@media(max-width:1224px) {
+.burger-menu {
+display: block;
+}
+.menu_top_left_list li {
+display: none;
+}
+.header_bottom_container ul {
+display: none;
+}
+.menubox {
+padding: calc(80px + (100 - 80) * ((100vw - 320px) / (1224 - 320))) calc(10px + (40 - 10) * ((100vw - 320px) / (1260 - 320)));
+}
+.menubox ul:first-child {
+margin-right: calc(10px + (30 - 10) * ((100vw - 320px) / (1224 - 320)));
+}
+.menu-item {
+font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1224 - 320)));
+}
+}
+
+
+@media(max-width:480px) {
+.menu_bottom_right {
+display: none;
+}
+.header_bottom_container {
+min-height: 80px;
+justify-content: center;
+}
+}
+
+@media(max-width:450px) {
+.menubox {
+flex-direction: column;
+align-items: center;
+justify-content: flex-start;
+}
+.menubox ul {
+flex: none;
+align-items: center;
+}
+.menu-item {
+height: 20px;
+margin-bottom: 30px;
+}
+}
+
+@media(max-width:400px) {
+.menu_top_right_list>:first-child {
+display: none;
+}
+.funding {
+display: block;
+}
+}
+

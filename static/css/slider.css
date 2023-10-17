@@ -1,0 +1,19 @@
+.slider__items {
+      counter-reset: slide;
+    }
+
+    .slider__item {
+      counter-increment: slide;
+    }
+
+    .slider__item>div::before {
+      content: counter(slide);
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      color: #fff;
+      font-style: italic;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
