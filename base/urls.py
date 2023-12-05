@@ -3,4 +3,5 @@ from django.urls import path
 
 urlpatterns = [
     path('', index, name='index'),
+    path('coverage/', coverage, name='coverage'),
 ]
